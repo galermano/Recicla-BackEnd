@@ -10,7 +10,9 @@ public class Coleta {
 	private int quantidade;
 	private Date dataSol;
 	private Date dataCon;
+	//Id de logradouro de coleta (daonde pega)
 	private int idLogradouroR;
+	//Id de logradouro de entrega (daonde entrega)
 	private int idLogradouroE;
 	private int idUsuarioR;
 	private int idUsuarioE;
