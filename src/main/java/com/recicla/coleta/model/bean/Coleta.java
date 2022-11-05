@@ -1,6 +1,6 @@
 package com.recicla.coleta.model.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Coleta {
 
