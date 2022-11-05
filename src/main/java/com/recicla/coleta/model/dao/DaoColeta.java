@@ -20,7 +20,7 @@ public class DaoColeta {
 
 	public Coleta inserir(Coleta col) throws SQLException, ClassNotFoundException {
 		String sql = "insert into col_coleta"
-				+ " (id_status, compl, quantidade, data_sol, data_con, id_logradouro_r, id_logradouro_e, id_usario_r, id_usuario_e)"
+				+ " (id_status, compl, quantidade, data_sol, data_con, id_logradouro_r, id_logradouro_e, id_usuario_r, id_usuario_e)"
 				+ " values (?,?,?,?,?,?,?,?,?)";
 
 		// prepared statement para inserção

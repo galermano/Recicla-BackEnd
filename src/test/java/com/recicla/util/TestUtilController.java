@@ -23,12 +23,4 @@ public class TestUtilController extends TestCase{
 		assertNotNull(staResponse.getId());
 	}
 	
-	@Test
-	@DisplayName("Teste de Inserção de STATUS")
-	public void testBuscar() throws ClassNotFoundException, SQLException {
-		this.sta = new Status("DISPONIVEL", "Coleta Disponivel");
-		ControllerStatus contSta = new ControllerStatus();
-		Status staResponse = contSta.inserir(this.sta);
-		assertNotNull(staResponse.getId());
-	}
 }
