@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.recicla.util.controller.ControllerStatus;
-import com.recicla.util.model.been.Status;
+import com.recicla.util.model.bean.Status;
 
 import junit.framework.TestCase;
 

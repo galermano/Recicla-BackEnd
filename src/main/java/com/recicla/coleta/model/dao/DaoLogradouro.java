@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.recicla.coleta.model.been.Logradouro;
-import com.recicla.util.model.been.ConexaoDB;
+import com.recicla.coleta.model.bean.Logradouro;
+import com.recicla.util.model.bean.ConexaoDB;
 
 public class DaoLogradouro {
 	private final Connection c;

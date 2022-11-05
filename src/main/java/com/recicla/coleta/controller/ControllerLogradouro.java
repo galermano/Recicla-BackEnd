@@ -3,7 +3,7 @@ package com.recicla.coleta.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.recicla.coleta.model.been.Logradouro;
+import com.recicla.coleta.model.bean.Logradouro;
 import com.recicla.coleta.model.dao.DaoLogradouro;
 
 public class ControllerLogradouro {

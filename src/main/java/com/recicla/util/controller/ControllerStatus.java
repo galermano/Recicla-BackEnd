@@ -3,7 +3,7 @@ package com.recicla.util.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.recicla.util.model.been.Status;
+import com.recicla.util.model.bean.Status;
 import com.recicla.util.model.dao.DaoStatus;
 
 

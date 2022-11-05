@@ -1,4 +1,4 @@
-package com.recicla.coleta.model.been;
+package com.recicla.coleta.model.bean;
 
 public class Logradouro {
 

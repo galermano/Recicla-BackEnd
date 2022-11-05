@@ -1,4 +1,4 @@
-package com.recicla.coleta.model.been;
+package com.recicla.coleta.model.bean;
 
 import java.util.Date;
 

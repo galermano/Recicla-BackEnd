@@ -1,4 +1,4 @@
-package com.recicla.util.model.been;
+package com.recicla.util.model.bean;
 
 public class Status {
 

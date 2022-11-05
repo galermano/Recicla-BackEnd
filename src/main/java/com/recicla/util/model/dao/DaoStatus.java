@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.recicla.util.model.been.ConexaoDB;
-import com.recicla.util.model.been.Status;
+import com.recicla.util.model.bean.ConexaoDB;
+import com.recicla.util.model.bean.Status;
 
 public class DaoStatus {
 	
