@@ -45,6 +45,17 @@ public class Logradouro {
 		this.idRegiao = idRegiao;
 		this.cep = cep;
 	}
+	
+	public Logradouro( int idRegiao, String cep) {
+		super();
+		this.idRegiao = idRegiao;
+		this.cep = cep;
+	}
+	
+	public Logradouro(String cep) {
+		super();
+		this.cep = cep;
+	}
 
 	@Override
 	public String toString() {

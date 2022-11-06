@@ -51,6 +51,12 @@ public class Coleta {
 		this.dataSol = dataSol;
 	}
 	
+	public Coleta(int id) {
+		super();
+		this.id = id;
+	}
+	
+	
 	public Coleta(int id, String compl, int quantidade, Date dataSol, Date dataCon) {
 		super();
 		this.id = id;

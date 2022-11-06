@@ -43,6 +43,11 @@ public class Regiao {
 		super();
 		this.descricao = descricao;
 	}
+	
+	public Regiao(int id) {
+		super();
+		this.id = id;
+	}
 
 	public Regiao(String nome, String descricao) {
 		super();

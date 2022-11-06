@@ -20,7 +20,7 @@ public class TestColeta extends TestCase{
 
 	@Test
 	@DisplayName("Teste de inserção de Coleta")
-	public void testInserir() throws ClassNotFoundException, SQLException, ParseException {
+	public void testInserirColeta() throws ClassNotFoundException, SQLException, ParseException {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Date dataSol = new Date();
 		Date dataCon = formatter.parse("30-11-2022");
@@ -29,6 +29,40 @@ public class TestColeta extends TestCase{
 		
 		ControllerColeta contCol = new ControllerColeta();
 		assertNotNull(contCol.inserir(newCol).getId());
+		assertNotNull(contCol.inserir(newCol).getId());
+		assertNotNull(contCol.inserir(newCol).getId());
+		assertNotNull(contCol.inserir(newCol).getId());
+		assertNotNull(contCol.inserir(newCol).getId());
+
+	}
+	
+	@Test
+	@DisplayName("Teste de busca de Coleta")
+	public void testBuscarColeta() throws ClassNotFoundException, SQLException, ParseException {
+		Coleta newCol = new Coleta(2);
+		ControllerColeta contCol = new ControllerColeta();
+		
+		assertNotNull(contCol.buscar(newCol));
+	}
+	
+	@Test
+	@DisplayName("Teste de listar de Coleta")
+	public void testListarColeta() throws ClassNotFoundException, SQLException, ParseException {
+		Date dataSol = new Date();
+		
+		Coleta newCol = new Coleta(new java.sql.Date(dataSol.getTime()));
+		ControllerColeta contCol = new ControllerColeta();
+
+		assertNotNull(contCol.listar(newCol));
+	}
+	
+	@Test
+	@DisplayName("Teste de excluir de Coleta")
+	public void testExcluirColeta() throws ClassNotFoundException, SQLException, ParseException {
+		Coleta newCol = new Coleta(1);
+		ControllerColeta contCol = new ControllerColeta();
+		
+		assertNotNull(contCol.excluir(newCol));
 	}
 	
 }
