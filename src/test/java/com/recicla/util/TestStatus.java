@@ -8,7 +8,6 @@ import java.text.ParseException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.recicla.coleta.model.bean.Regiao;
 import com.recicla.util.controller.ControllerStatus;
 import com.recicla.util.model.bean.Status;
 
