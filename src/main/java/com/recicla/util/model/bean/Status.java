@@ -18,6 +18,17 @@ public class Status {
 		this.nome = nome;
 		this.descricao = descricao;
 	}
+	
+	public Status(String nome) {
+		super();
+		this.nome = nome;
+	}
+	
+	
+	public Status(int id) {
+		super();
+		this.id = id;
+	}
 
 	public int getId() {
 		return id;

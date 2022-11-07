@@ -11,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.recicla.coleta.controller.ControllerRegiao;
+import com.recicla.coleta.controller.ControllerRegiao;
+import com.recicla.coleta.model.bean.Regiao;
 import com.recicla.coleta.model.bean.Regiao;
 
 import junit.framework.TestCase;
@@ -59,6 +61,18 @@ public class TestRegiao extends TestCase{
 		ControllerRegiao contCol = new ControllerRegiao();
 		
 		assertNotNull(contCol.excluir(newCol));
+	}
+	
+	@Test
+	@DisplayName("Teste de alterar de Regiao")
+	public void testAlterarRegiao() throws ClassNotFoundException, SQLException, ParseException {
+		
+		Regiao newCol = new Regiao(1,"Patriarca", "Zona Leste");
+		
+		ControllerRegiao contCol = new ControllerRegiao();
+		assertNotNull(contCol.alterar(newCol).getId());
+
+
 	}
 	
 }

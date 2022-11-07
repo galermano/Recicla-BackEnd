@@ -58,4 +58,16 @@ public class TestLogradouro extends TestCase{
 		assertNotNull(contCol.excluir(newCol));
 	}
 	
+	@Test
+	@DisplayName("Teste de alterar de Logradouro")
+	public void testAlterarLogradouro() throws ClassNotFoundException, SQLException, ParseException {
+		
+		Logradouro newCol = new Logradouro(1,3,"089898989");
+		
+		ControllerLogradouro contCol = new ControllerLogradouro();
+		assertNotNull(contCol.alterar(newCol).getId());
+
+
+	}
+	
 }
