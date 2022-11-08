@@ -1,0 +1,31 @@
+create DATABASE RECICLA;
+CREATE TABLE col_coleta (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    id_status integer(10),
+    compl varchar(255),
+    quantidade integer(10),
+    data_sol date,
+    data_con date,
+    id_logradouro_r integer(10),
+    id_logradouro_e integer(10),
+    id_usuario_r integer(10),
+    id_usuario_e integer(10)
+);
+
+CREATE TABLE log_logradouro (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    id_regiao integer(10),
+    cep varchar(255)
+);
+
+CREATE TABLE reg_regiao (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(255),
+    descricao varchar(255)
+);
+
+CREATE TABLE sta_status (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(255),
+    descricao varchar(255)
+);
