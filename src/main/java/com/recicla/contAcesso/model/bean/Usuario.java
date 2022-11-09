@@ -5,36 +5,37 @@ import java.util.Date;
 public class Usuario {
 	private Integer id;
 	private Integer id_pessoa;
-	private Integer id_acesso;
 	private Integer id_status;
 	private String login;
 	private String senha;
+	private String tipo;
 	private Date data_inicio;
 	private Date data_fim;
 	
 	public Usuario() {
 	}
 	
-	public Usuario(Integer id, Integer id_pessoa, Integer id_acesso, Integer id_status, String login, String senha,
+	public Usuario(Integer id, Integer id_pessoa, Integer id_status, String login, String senha, String tipo,
 			Date data_inicio, Date data_fim) {
 		
 		this.id = id;
 		this.id_pessoa = id_pessoa;
-		this.id_acesso = id_acesso;
 		this.id_status = id_status;
 		this.login = login;
 		this.senha = senha;
+		this.tipo = tipo;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
 	}
-
-	public Usuario(Integer id_pessoa, Integer id_acesso, Integer id_status, String login, String senha,
+	
+	public Usuario(Integer id_pessoa, Integer id_status, String login, String senha, String tipo,
 			Date data_inicio, Date data_fim) {
+		
 		this.id_pessoa = id_pessoa;
-		this.id_acesso = id_acesso;
 		this.id_status = id_status;
 		this.login = login;
 		this.senha = senha;
+		this.tipo = tipo;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
 	}
@@ -55,9 +56,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	
-	
-	
 	public Integer getId() {
 		return id;
 	}
@@ -72,14 +70,6 @@ public class Usuario {
 
 	public void setId_pessoa(Integer id_pessoa) {
 		this.id_pessoa = id_pessoa;
-	}
-
-	public Integer getId_acesso() {
-		return id_acesso;
-	}
-
-	public void setId_acesso(Integer id_acesso) {
-		this.id_acesso = id_acesso;
 	}
 
 	public Integer getId_status() {
@@ -101,10 +91,19 @@ public class Usuario {
 	public String getSenha() {
 		return senha;
 	}
-
+	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+	
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 
 	public Date getData_inicio() {
 		return data_inicio;
@@ -124,9 +123,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", id_pessoa=" + id_pessoa + ", id_acesso=" + id_acesso + ", id_status="
-				+ id_status + ", login=" + login + ", data_inicio=" + data_inicio + ", data_fim=" + data_fim + "]";
+		return "Usuario [id=" + id + ", id_pessoa=" + id_pessoa + ", id_status=" + id_status + ", login=" + login
+				+ ", senha=" + senha + ", tipo=" + tipo + ", data_inicio=" + data_inicio + ", data_fim=" + data_fim
+				+ "]";
 	}
-	
 	
 }	

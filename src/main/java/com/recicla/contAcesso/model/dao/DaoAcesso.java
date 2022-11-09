@@ -20,15 +20,16 @@ public class DaoAcesso {
 
 	public Acesso inserir(Acesso acess) throws SQLException, ClassNotFoundException {
 		String sql = "insert into acesso"
-				+ " (id_modulo, tipo)"
-				+ " values (?,?)";
+				+ " (id_usuario, id_modulo, tipo)"
+				+ " values (?,?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		// seta os valores
-		stmt.setInt(1, acess.getId_modulo());
-		stmt.setString(2, acess.getTipo());
+		stmt.setInt(1, acess.getId_usuario());
+		stmt.setInt(2, acess.getId_modulo());
+		stmt.setString(3, acess.getTipo());
 		
 
 		// executa
@@ -43,13 +44,14 @@ public class DaoAcesso {
 	}
 
 	public Acesso alterar(Acesso acess) throws SQLException {
-		String sql = "UPDATE acesso SET id_modulo = ?, tipo = ? WHERE id = ?";
+		String sql = "UPDATE acesso SET id_usuario = ?, id_modulo = ?, tipo = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
-		stmt.setInt(1, acess.getId_modulo());
-		stmt.setString(2, acess.getTipo());
-		stmt.setInt(3, acess.getId());
+		stmt.setInt(1, acess.getId_usuario());
+		stmt.setInt(2, acess.getId_modulo());
+		stmt.setString(3, acess.getTipo());
+		stmt.setInt(4, acess.getId());
 
 		
 		// executa
@@ -68,7 +70,7 @@ public class DaoAcesso {
 		Acesso retorno = null;
 		while (rs.next()) {
 			// criando o objeto Acesso
-			retorno = new Acesso(rs.getInt(1),rs.getInt(2), rs.getString(3));
+			retorno = new Acesso(rs.getInt(1), rs.getInt(2),rs.getInt(3), rs.getString(4));
 			// adiciona o acess à lista de acesss
 		}
 		stmt.close();
@@ -89,7 +91,7 @@ public class DaoAcesso {
 
 		while (rs.next()) {
 			// criando o objeto Acesso
-			Acesso acess = new Acesso(rs.getInt(1),rs.getInt(2), rs.getString(3));
+			Acesso acess = new Acesso(rs.getInt(1), rs.getInt(2),rs.getInt(3), rs.getString(4));
 			// adiciona o acess à lista de acesss
 			acesss.add(acess);
 		}
