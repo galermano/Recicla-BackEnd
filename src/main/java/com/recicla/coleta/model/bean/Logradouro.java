@@ -4,7 +4,18 @@ public class Logradouro {
 
 	private int id;
 	private int idRegiao;
+	private Regiao regiao;
 	private String cep;
+
+	
+	
+	protected Regiao getRegiao() {
+		return regiao;
+	}
+
+	protected void setRegiao(Regiao regiao) {
+		this.regiao = regiao;
+	}
 
 	public int getId() {
 		return id;
@@ -27,6 +38,16 @@ public class Logradouro {
 	}
 
 	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	
+	
+	public Logradouro(int id, int idRegiao, Regiao regiao, String cep) {
+		super();
+		this.id = id;
+		this.idRegiao = idRegiao;
+		this.regiao = regiao;
 		this.cep = cep;
 	}
 

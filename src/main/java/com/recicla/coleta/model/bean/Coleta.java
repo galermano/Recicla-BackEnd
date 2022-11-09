@@ -12,10 +12,14 @@ public class Coleta {
 	private Date dataCon;
 	//Id de logradouro de coleta (daonde pega)
 	private int idLogradouroR;
+	private Logradouro logradouroR;
 	//Id de logradouro de entrega (daonde entrega)
 	private int idLogradouroE;
+	private Logradouro logradouroE;
 	private int idUsuarioR;
+	// private UsuarioR usuarioR;
 	private int idUsuarioE;
+	// private UsuarioR usuarioE;
 	
 	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
 			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
@@ -28,6 +32,23 @@ public class Coleta {
 		this.dataCon = dataCon;
 		this.idLogradouroR = idLogradouroR;
 		this.idLogradouroE = idLogradouroE;
+		this.idUsuarioR = idUsuarioR;
+		this.idUsuarioE = idUsuarioE;
+	}
+
+	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
+			Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE) {
+		super();
+		this.id = id;
+		this.idStatus = idStatus;
+		this.compl = compl;
+		this.quantidade = quantidade;
+		this.dataSol = dataSol;
+		this.dataCon = dataCon;
+		this.idLogradouroR = idLogradouroR;
+		this.logradouroR = logradouroR;
+		this.idLogradouroE = idLogradouroE;
+		this.logradouroE = logradouroE;
 		this.idUsuarioR = idUsuarioR;
 		this.idUsuarioE = idUsuarioE;
 	}
@@ -148,6 +169,22 @@ public class Coleta {
 
 	public void setIdUsuarioE(int idUsuarioE) {
 		this.idUsuarioE = idUsuarioE;
+	}
+
+	protected Logradouro getLogradouroR() {
+		return logradouroR;
+	}
+
+	protected void setLogradouroR(Logradouro logradouroR) {
+		this.logradouroR = logradouroR;
+	}
+
+	protected Logradouro getLogradouroE() {
+		return logradouroE;
+	}
+
+	protected void setLogradouroE(Logradouro logradouroE) {
+		this.logradouroE = logradouroE;
 	}
 
 	

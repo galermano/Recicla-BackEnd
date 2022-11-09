@@ -18,11 +18,12 @@ import com.recicla.coleta.model.bean.Coleta;
 
 import junit.framework.TestCase;
 
+
 public class TestColeta extends TestCase {
 
 	@Test
 	@DisplayName("Teste de inserção de Coleta")
-	public void testInserirColeta() throws ClassNotFoundException, SQLException, ParseException {
+	public void firstTestInserirColeta() throws ClassNotFoundException, SQLException, ParseException {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Date dataSol = new Date();
 		Date dataCon = formatter.parse("30-11-2022");
