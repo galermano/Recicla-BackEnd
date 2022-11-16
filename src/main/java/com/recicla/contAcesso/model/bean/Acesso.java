@@ -1,7 +1,6 @@
 package com.recicla.contAcesso.model.bean;
 
 public class Acesso {
-	private Integer id_usuario;
 	private Integer id_modulo;
 	private String tipo;
 	
@@ -12,12 +11,7 @@ public class Acesso {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getId_usuario() {
-		return id_usuario;
-	}
-	public void setId_usuario(Integer id_usuario) {
-		this.id_usuario = id_usuario;
-	}
+
 	public Integer getId_modulo() {
 		return id_modulo;
 	}
@@ -30,17 +24,15 @@ public class Acesso {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Acesso(Integer id_usuario, Integer id_modulo, String tipo, Integer id) {
+	public Acesso( Integer id_modulo, String tipo, Integer id) {
 		super();
-		this.id_usuario = id_usuario;
 		this.id_modulo = id_modulo;
 		this.tipo = tipo;
 		this.id = id;
 	}
 	
-	public Acesso(Integer id_usuario, Integer id_modulo, Integer id, String tipo) {
+	public Acesso(Integer id_modulo, Integer id, String tipo) {
 		super();
-		this.id_usuario = id_usuario;
 		this.id_modulo = id_modulo;
 		this.id = id;
 		this.tipo = tipo;
@@ -50,8 +42,7 @@ public class Acesso {
 	}
 	@Override
 	public String toString() {
-		return "Acesso [id_usuario=" + id_usuario + ", id_modulo=" + id_modulo + ", tipo=" + tipo + ", id=" + id + "]";
+		return "Acesso [id_modulo=" + id_modulo + ", tipo=" + tipo + ", id=" + id + "]";
 	}
-	
 	
 }

@@ -21,8 +21,8 @@ public class DaoUsuario {
 
 	public Usuario inserir(Usuario usu) throws SQLException, ClassNotFoundException {
 		String sql = "insert into usuario"
-				+ " (id_pessoa, id_status, login, senha, tipo, data_inicio, data_fim)"
-				+ " values (?,?,?,?,?,?,?)";
+				+ " (id_pessoa, id_status, id_acesso, login, senha, tipo, data_inicio, data_fim)"
+				+ " values (?,?,?,?,?,?,?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -30,11 +30,12 @@ public class DaoUsuario {
 		// seta os valores
 		stmt.setInt(1, usu.getId_pessoa());
 		stmt.setInt(2, usu.getId_status());
-		stmt.setString(3, usu.getLogin());
-		stmt.setString(4, usu.getSenha());
-		stmt.setString(5, usu.getTipo());
-		stmt.setDate(6, (Date) usu.getData_inicio());
-		stmt.setDate(7, (Date) usu.getData_fim());
+		stmt.setInt(3, usu.getId_acesso());
+		stmt.setString(4, usu.getLogin());
+		stmt.setString(5, usu.getSenha());
+		stmt.setString(6, usu.getTipo());
+		stmt.setDate(7, (Date) usu.getData_inicio());
+		stmt.setDate(8, (Date) usu.getData_fim());
 
 		// executa
 		stmt.executeUpdate();
@@ -48,18 +49,19 @@ public class DaoUsuario {
 	}
 
 	public Usuario alterar(Usuario usu) throws SQLException {
-		String sql = "UPDATE usuario SET id_pessoa = ?, id_status = ?, login = ?, senha = ?, data_inicio = ?, data_fim = ? WHERE id = ?";
+		String sql = "UPDATE usuario SET id_pessoa = ?, id_status = ?, id_acesso = ?, login = ?, senha = ?, data_inicio = ?, data_fim = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, usu.getId_pessoa());
 		stmt.setInt(2, usu.getId_status());
-		stmt.setString(3, usu.getLogin());
-		stmt.setString(4, usu.getSenha());
-		stmt.setString(5, usu.getTipo());
-		stmt.setDate(6, (Date) usu.getData_inicio());
-		stmt.setDate(7, (Date) usu.getData_fim());
-		stmt.setInt(8, usu.getId());
+		stmt.setInt(3, usu.getId_acesso());
+		stmt.setString(4, usu.getLogin());
+		stmt.setString(5, usu.getSenha());
+		stmt.setString(6, usu.getTipo());
+		stmt.setDate(7, (Date) usu.getData_inicio());
+		stmt.setDate(8, (Date) usu.getData_fim());
+		stmt.setInt(9, usu.getId());
 
 		
 		// executa
@@ -78,7 +80,7 @@ public class DaoUsuario {
 		Usuario retorno = null;
 		while (rs.next()) {
 			// criando o objeto Usuario
-			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8), rs.getDate(9));
 			// adiciona o usu à lista de usus
 		}
 		stmt.close();
@@ -99,7 +101,7 @@ public class DaoUsuario {
 
 		while (rs.next()) {
 			// criando o objeto Usuario
-			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8), rs.getDate(9));
 			// adiciona o usu à lista de usus
 			usus.add(usu);
 		}

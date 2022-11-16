@@ -6,6 +6,7 @@ public class Usuario {
 	private Integer id;
 	private Integer id_pessoa;
 	private Integer id_status;
+	private Integer id_acesso;
 	private String login;
 	private String senha;
 	private String tipo;
@@ -15,12 +16,13 @@ public class Usuario {
 	public Usuario() {
 	}
 	
-	public Usuario(Integer id, Integer id_pessoa, Integer id_status, String login, String senha, String tipo,
+	public Usuario(Integer id, Integer id_pessoa, Integer id_status, Integer id_acesso, String login, String senha, String tipo,
 			Date data_inicio, Date data_fim) {
 		
 		this.id = id;
 		this.id_pessoa = id_pessoa;
 		this.id_status = id_status;
+		this.id_acesso = id_acesso;
 		this.login = login;
 		this.senha = senha;
 		this.tipo = tipo;
@@ -28,11 +30,12 @@ public class Usuario {
 		this.data_fim = data_fim;
 	}
 	
-	public Usuario(Integer id_pessoa, Integer id_status, String login, String senha, String tipo,
+	public Usuario(Integer id_pessoa, Integer id_status, Integer id_acesso, String login, String senha, String tipo,
 			Date data_inicio, Date data_fim) {
 		
 		this.id_pessoa = id_pessoa;
 		this.id_status = id_status;
+		this.id_acesso = id_acesso;
 		this.login = login;
 		this.senha = senha;
 		this.tipo = tipo;
@@ -79,6 +82,14 @@ public class Usuario {
 	public void setId_status(Integer id_status) {
 		this.id_status = id_status;
 	}
+	
+	public Integer getId_acesso() {
+		return id_acesso;
+	}
+
+	public void setId_acesso(Integer id_acesso) {
+		this.id_acesso = id_acesso;
+	}
 
 	public String getLogin() {
 		return login;
@@ -123,9 +134,10 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", id_pessoa=" + id_pessoa + ", id_status=" + id_status + ", login=" + login
-				+ ", senha=" + senha + ", tipo=" + tipo + ", data_inicio=" + data_inicio + ", data_fim=" + data_fim
-				+ "]";
+		return "Usuario [id=" + id + ", id_pessoa=" + id_pessoa + ", id_status=" + id_status + ", id_acesso="
+				+ id_acesso + ", login=" + login + ", senha=" + senha + ", tipo=" + tipo + ", data_inicio="
+				+ data_inicio + ", data_fim=" + data_fim + "]";
 	}
+
 	
 }	
