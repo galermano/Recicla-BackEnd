@@ -20,14 +20,9 @@ public class DaoUsuario {
 	}
 
 	public Usuario inserir(Usuario usu) throws SQLException, ClassNotFoundException {
-<<<<<<< HEAD
 		String sql = "insert into usuario"
 				+ " (id_pessoa, id_status, id_acesso, login, senha, tipo, data_inicio, data_fim)"
 				+ " values (?,?,?,?,?,?,?,?)";
-=======
-		String sql = "insert into usuario" + " (id_pessoa, id_status, login, senha, tipo, data_inicio, data_fim)"
-				+ " values (?,?,?,?,?,?,?)";
->>>>>>> 61af8e64aba1630d9affb9009e67a2f195efdaa8
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -84,12 +79,8 @@ public class DaoUsuario {
 		Usuario retorno = null;
 		while (rs.next()) {
 			// criando o objeto Usuario
-<<<<<<< HEAD
 			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8), rs.getDate(9));
-=======
-			retorno = new Usuario(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-					rs.getString(6), rs.getDate(7), rs.getDate(8));
->>>>>>> 61af8e64aba1630d9affb9009e67a2f195efdaa8
+
 			// adiciona o usu à lista de usus
 		}
 		stmt.close();
@@ -110,12 +101,8 @@ public class DaoUsuario {
 
 		while (rs.next()) {
 			// criando o objeto Usuario
-<<<<<<< HEAD
 			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8), rs.getDate(9));
-=======
-			Usuario usu = new Usuario(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-					rs.getString(6), rs.getDate(7), rs.getDate(8));
->>>>>>> 61af8e64aba1630d9affb9009e67a2f195efdaa8
+
 			// adiciona o usu à lista de usus
 			usus.add(usu);
 		}
@@ -157,11 +144,12 @@ public class DaoUsuario {
 					rs.getInt(1),
 					rs.getInt(2), 
 					rs.getInt(3), 
-					rs.getString(4), 
-					rs.getString(5),
+					rs.getInt(4),
+					rs.getString(5), 
 					rs.getString(6),
-					rs.getDate(7), 
-					rs.getDate(8)
+					rs.getString(7),
+					rs.getDate(8), 
+					rs.getDate(9)
 					);
 			// adiciona o usu à lista de usus
 		}
