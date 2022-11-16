@@ -31,4 +31,16 @@ public class ControllerUsuario {
 		DaoUsuario daoUsu = new DaoUsuario();
 		return daoUsu.alterar(usu);
 	}
+	
+	public Boolean validar (Usuario u) throws SQLException, ClassNotFoundException {
+        boolean validado = false;
+        DaoUsuario daoUsu = new DaoUsuario();
+        Usuario usuSaida = daoUsu.validar(u);
+        if(usuSaida.getLogin().equals(u.getLogin())) {
+            if(usuSaida.getSenha().equals(u.getSenha())) {
+                validado = true;
+            }
+        }
+        return validado;
+    }
 }

@@ -20,8 +20,7 @@ public class DaoUsuario {
 	}
 
 	public Usuario inserir(Usuario usu) throws SQLException, ClassNotFoundException {
-		String sql = "insert into usuario"
-				+ " (id_pessoa, id_status, login, senha, tipo, data_inicio, data_fim)"
+		String sql = "insert into usuario" + " (id_pessoa, id_status, login, senha, tipo, data_inicio, data_fim)"
 				+ " values (?,?,?,?,?,?,?)";
 
 		// prepared statement para inserção
@@ -61,7 +60,6 @@ public class DaoUsuario {
 		stmt.setDate(7, (Date) usu.getData_fim());
 		stmt.setInt(8, usu.getId());
 
-		
 		// executa
 		stmt.execute();
 		stmt.close();
@@ -78,7 +76,8 @@ public class DaoUsuario {
 		Usuario retorno = null;
 		while (rs.next()) {
 			// criando o objeto Usuario
-			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+			retorno = new Usuario(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getDate(7), rs.getDate(8));
 			// adiciona o usu à lista de usus
 		}
 		stmt.close();
@@ -99,7 +98,8 @@ public class DaoUsuario {
 
 		while (rs.next()) {
 			// criando o objeto Usuario
-			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+			Usuario usu = new Usuario(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+					rs.getString(6), rs.getDate(7), rs.getDate(8));
 			// adiciona o usu à lista de usus
 			usus.add(usu);
 		}
@@ -121,5 +121,37 @@ public class DaoUsuario {
 		stmt.close();
 		c.close();
 		return usu;
+	}
+
+	public Usuario validar(Usuario usu) throws SQLException {
+		// cria o select para ser executado no banco de dados
+		String sql = "select * from usuario WHERE login = ? AND senha = ?";
+		// prepared statement para seleção
+		PreparedStatement stmt = this.c.prepareStatement(sql);
+		// seta os valores
+		stmt.setString(1, usu.getLogin());
+		stmt.setString(2, usu.getSenha());
+		// executa
+		ResultSet rs = stmt.executeQuery();
+		// percorrendo o rs
+		Usuario usuSaida = null;
+		while (rs.next()) {
+			// criando o objeto Usuario
+			usuSaida = new Usuario(
+					rs.getInt(1),
+					rs.getInt(2), 
+					rs.getInt(3), 
+					rs.getString(4), 
+					rs.getString(5),
+					rs.getString(6),
+					rs.getDate(7), 
+					rs.getDate(8)
+					);
+			// adiciona o usu à lista de usus
+		}
+		stmt.close();
+		System.out.println("Usuario: " + usuSaida.toString());
+
+		return usuSaida;
 	}
 }

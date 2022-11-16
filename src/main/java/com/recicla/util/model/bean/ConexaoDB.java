@@ -12,7 +12,7 @@ public class ConexaoDB {
             Class.forName(driverName);
             String url ="jdbc:mariadb://localhost:3306/projetobittencourt";
             String usuario = "root";
-            String senha = "890999000";
+            String senha = "";
             Connection c = DriverManager.getConnection(url,usuario,senha); 
             System.out.println("ConexÃo OK");
             return c;
