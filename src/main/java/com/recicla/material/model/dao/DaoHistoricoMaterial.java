@@ -21,7 +21,7 @@ public class DaoHistoricoMaterial {
     
     public DaoHistoricoMaterial() throws SQLException, ClassNotFoundException {
         //Reservado para a linkagem com o arquivo de conexão do banco de dados
-        this.c = new ConexaoDb().getConnection();
+        this.c = new ConexaoDB().getConnection();
     }
 
     public HistoricoMaterial inserir(HistoricoMaterial histMat) throws SQLException {

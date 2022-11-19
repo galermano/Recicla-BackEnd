@@ -1,6 +1,7 @@
 package com.recicla.material.model.dao;
 
 import com.recicla.material.model.been.HistoricoTipoMaterial;
+import com.recicla.util.model.bean.ConexaoDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ public class DaoHistoricoTipoMaterial {
 
     public DaoHistoricoTipoMaterial() throws SQLException, ClassNotFoundException {
         //Reservado para a linkagem com o arquivo de conexão do banco de dados
-        this.c = new ConexaoDb().getConnection();
+        this.c = new ConexaoDB().getConnection();
     }
 
     public HistoricoTipoMaterial inserir(HistoricoTipoMaterial histTipoMat) throws SQLException {

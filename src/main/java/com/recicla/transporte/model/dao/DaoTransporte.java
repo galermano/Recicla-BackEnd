@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.recicla.transporte.model.been.Transporte;
-//import com.recicla.util.model.bean.ConexaoDB;
+import com.recicla.util.model.bean.ConexaoDB;
 
 public class DaoTransporte {
 	private final Connection c;
