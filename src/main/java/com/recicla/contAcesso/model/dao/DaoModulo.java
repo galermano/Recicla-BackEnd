@@ -19,7 +19,7 @@ public class DaoModulo {
 	}
 
 	public Modulo inserir(Modulo mod) throws SQLException, ClassNotFoundException {
-		String sql = "insert into modulo"
+		String sql = "insert into mod_modulo"
 				+ " (nome, descricao)"
 				+ " values (?,?)";
 
@@ -42,7 +42,7 @@ public class DaoModulo {
 	}
 
 	public Modulo alterar(Modulo mod) throws SQLException {
-		String sql = "UPDATE modulo SET nome = ?, descricao = ? WHERE id = ?";
+		String sql = "UPDATE mod_modulo SET nome = ?, descricao = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -57,7 +57,7 @@ public class DaoModulo {
 	}
 
 	public Modulo buscar(Modulo mod) throws SQLException {
-		String sql = "select * from modulo WHERE id = ?";
+		String sql = "select * from mod_modulo WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, mod.getId());
@@ -78,7 +78,7 @@ public class DaoModulo {
 
 		List<Modulo> mods = new ArrayList<Modulo>();
 
-		String sql = "select * from modulo where nome like ?";
+		String sql = "select * from mod_modulo where nome like ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, "%" + modEnt.getNome() + "%");
@@ -99,7 +99,7 @@ public class DaoModulo {
 	}
 
 	public Modulo excluir(Modulo mod) throws SQLException {
-		String sql = "delete from modulo WHERE id = ?";
+		String sql = "delete from mod_modulo WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores

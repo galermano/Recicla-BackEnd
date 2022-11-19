@@ -19,7 +19,7 @@ public class DaoAcesso {
 	}
 
 	public Acesso inserir(Acesso acess) throws SQLException, ClassNotFoundException {
-		String sql = "insert into acesso"
+		String sql = "insert into ace_acesso"
 				+ " (id_modulo, tipo)"
 				+ " values (?,?)";
 
@@ -42,7 +42,7 @@ public class DaoAcesso {
 	}
 
 	public Acesso alterar(Acesso acess) throws SQLException {
-		String sql = "UPDATE acesso SET id_modulo = ?, tipo = ? WHERE id = ?";
+		String sql = "UPDATE ace_acesso SET id_modulo = ?, tipo = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -57,7 +57,7 @@ public class DaoAcesso {
 	}
 
 	public Acesso buscar(Acesso acess) throws SQLException {
-		String sql = "select * from acesso WHERE id = ?";
+		String sql = "select * from ace_acesso WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, acess.getId());
@@ -79,7 +79,7 @@ public class DaoAcesso {
 
 		List<Acesso> acesss = new ArrayList<Acesso>();
 
-		String sql = "select * from acesso where tipo like ?";
+		String sql = "select * from ace_acesso where tipo like ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, "%" + acessEnt.getTipo() + "%");
@@ -101,7 +101,7 @@ public class DaoAcesso {
 	}
 
 	public Acesso excluir(Acesso acess) throws SQLException {
-		String sql = "delete from acesso WHERE id = ?";
+		String sql = "delete from ace_acesso WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -115,7 +115,7 @@ public class DaoAcesso {
 
 	public Acesso validar(Acesso acess) throws SQLException {
 		// cria o select para ser executado no banco de dados
-		String sql = "select * from acesso WHERE id = ?";
+		String sql = "select * from ace_acesso WHERE id = ?";
 		// prepared statement para seleção
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores

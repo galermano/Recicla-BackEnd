@@ -20,7 +20,7 @@ public class DaoUsuario {
 	}
 
 	public Usuario inserir(Usuario usu) throws SQLException, ClassNotFoundException {
-		String sql = "insert into usuario"
+		String sql = "insert into usu_usuario"
 				+ " (id_pessoa, id_status, id_acesso, login, senha, tipo, data_inicio, data_fim)"
 				+ " values (?,?,?,?,?,?,?,?)";
 
@@ -49,7 +49,7 @@ public class DaoUsuario {
 	}
 
 	public Usuario alterar(Usuario usu) throws SQLException {
-		String sql = "UPDATE usuario SET id_pessoa = ?, id_status = ?, id_acesso = ?, login = ?, senha = ?, data_inicio = ?, data_fim = ? WHERE id = ?";
+		String sql = "UPDATE usu_usuario SET id_pessoa = ?, id_status = ?, id_acesso = ?, login = ?, senha = ?, data_inicio = ?, data_fim = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -70,7 +70,7 @@ public class DaoUsuario {
 	}
 
 	public Usuario buscar(Usuario usu) throws SQLException {
-		String sql = "select * from usuario WHERE id = ?";
+		String sql = "select * from usu_usuario WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, usu.getId());
@@ -92,7 +92,7 @@ public class DaoUsuario {
 
 		List<Usuario> usus = new ArrayList<Usuario>();
 
-		String sql = "select * from usuario where login like ?";
+		String sql = "select * from usu_usuario where login like ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, "%" + usuEnt.getLogin() + "%");
@@ -128,7 +128,7 @@ public class DaoUsuario {
 
 	public Usuario validar(Usuario usu) throws SQLException {
 		// cria o select para ser executado no banco de dados
-		String sql = "select * from usuario WHERE login = ? AND senha = ?";
+		String sql = "select * from usu_usuario WHERE login = ? AND senha = ?";
 		// prepared statement para seleção
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores

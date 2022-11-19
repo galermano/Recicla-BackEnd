@@ -20,7 +20,7 @@ public class DaoHistoricoAcesso {
 	}
 
 	public HistoricoAcesso inserir(HistoricoAcesso hist) throws SQLException, ClassNotFoundException {
-		String sql = "insert into historicoacesso"
+		String sql = "insert into his_historicoacesso"
 				+ " (id_usu,dataAcesso)"
 				+ " values (?,?)";
 
@@ -43,7 +43,7 @@ public class DaoHistoricoAcesso {
 	}
 
 	public HistoricoAcesso alterar(HistoricoAcesso hist) throws SQLException {
-		String sql = "UPDATE historicoacesso SET id_usu = ?, dataAcesso = ? WHERE id = ?";
+		String sql = "UPDATE his_historicoacesso SET id_usu = ?, dataAcesso = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -58,7 +58,7 @@ public class DaoHistoricoAcesso {
 	}
 
 	public HistoricoAcesso buscar(HistoricoAcesso hist) throws SQLException {
-		String sql = "select * from historicoacesso WHERE id = ?";
+		String sql = "select * from his_historicoacesso WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, hist.getId());
@@ -79,7 +79,7 @@ public class DaoHistoricoAcesso {
 
 		List<HistoricoAcesso> hists = new ArrayList<HistoricoAcesso>();
 
-		String sql = "select * from historicoacesso where dataAcesso like ?";
+		String sql = "select * from his_historicoacesso where dataAcesso like ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, "%" + histEnt.getDataAcesso() + "%");
@@ -100,7 +100,7 @@ public class DaoHistoricoAcesso {
 	}
 
 	public HistoricoAcesso excluir(HistoricoAcesso hist) throws SQLException {
-		String sql = "delete from historicoacesso WHERE id = ?";
+		String sql = "delete from his_historicoacesso WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores

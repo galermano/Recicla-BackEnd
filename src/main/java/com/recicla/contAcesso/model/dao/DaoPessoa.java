@@ -19,7 +19,7 @@ public class DaoPessoa {
 	}
 
 	public Pessoa inserir(Pessoa pes) throws SQLException, ClassNotFoundException {
-		String sql = "insert into pessoa"
+		String sql = "insert into pes_pessoa"
 				+ " (nome, identificacao, tipo, id_logradouro)"
 				+ " values (?,?,?,?)";
 
@@ -44,7 +44,7 @@ public class DaoPessoa {
 	}
 
 	public Pessoa alterar(Pessoa pes) throws SQLException {
-		String sql = "UPDATE pessoa SET nome = ?, identificacao = ?, tipo = ?, id_logradouro = ? WHERE id = ?";
+		String sql = "UPDATE pes_pessoa SET nome = ?, identificacao = ?, tipo = ?, id_logradouro = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -61,7 +61,7 @@ public class DaoPessoa {
 	}
 
 	public Pessoa buscar(Pessoa pes) throws SQLException {
-		String sql = "select * from pessoa WHERE id = ?";
+		String sql = "select * from pes_pessoa WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, pes.getId());
@@ -82,7 +82,7 @@ public class DaoPessoa {
 
 		List<Pessoa> pess = new ArrayList<Pessoa>();
 
-		String sql = "select * from pessoa where nome like ?";
+		String sql = "select * from pes_pessoa where nome like ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, "%" + pesEnt.getNome() + "%");
