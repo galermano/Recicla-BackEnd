@@ -17,7 +17,7 @@ public class App
     {
         System.out.println( "Hello World!" );
         
-        Acesso newAcess = new Acesso(4,1,1,"Adm");
+        Acesso newAcess = new Acesso(4,1,"Adm");
         
         ControllerAcesso contAcesso = new ControllerAcesso();
         
