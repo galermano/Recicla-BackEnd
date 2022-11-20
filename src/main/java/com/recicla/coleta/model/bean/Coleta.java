@@ -26,7 +26,6 @@ public class Coleta {
 
 	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
 			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
-		super();
 		this.id = id;
 		this.idStatus = idStatus;
 		this.compl = compl;
@@ -41,7 +40,6 @@ public class Coleta {
 
 	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
 			Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
-		super();
 		this.id = id;
 		this.idStatus = idStatus;
 		this.compl = compl;
@@ -60,7 +58,6 @@ public class Coleta {
 
 	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
 	Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
-		super();
 		this.idStatus = idStatus;
 		this.compl = compl;
 		this.quantidade = quantidade;
@@ -77,18 +74,15 @@ public class Coleta {
 	}
 
 	public Coleta(Date dataSol) {
-		super();
 		this.dataSol = dataSol;
 	}
 	
 	public Coleta(int id) {
-		super();
 		this.id = id;
 	}
 	
 	
 	public Coleta(int id, String compl, int quantidade, Date dataSol, Date dataCon) {
-		super();
 		this.id = id;
 		this.compl = compl;
 		this.quantidade = quantidade;
@@ -97,7 +91,6 @@ public class Coleta {
 	}
 
 	public Coleta() {
-		super();
 	}
 
 	public int getId() {
@@ -180,35 +173,35 @@ public class Coleta {
 		this.idUsuarioE = idUsuarioE;
 	}
 
-	protected Logradouro getLogradouroR() {
+	public Logradouro getLogradouroR() {
 		return logradouroR;
 	}
 
-	protected void setLogradouroR(Logradouro logradouroR) {
+	public void setLogradouroR(Logradouro logradouroR) {
 		this.logradouroR = logradouroR;
 	}
 
-	protected Logradouro getLogradouroE() {
+	public Logradouro getLogradouroE() {
 		return logradouroE;
 	}
 
-	protected void setLogradouroE(Logradouro logradouroE) {
+	public void setLogradouroE(Logradouro logradouroE) {
 		this.logradouroE = logradouroE;
 	}
 
-	protected Usuario getUsuarioR() {
+	public Usuario getUsuarioR() {
 		return usuarioR;
 	}
 
-	protected void setUsuarioR(Usuario usuarioR) {
+	public void setUsuarioR(Usuario usuarioR) {
 		this.usuarioR = usuarioR;
 	}
 
-	protected Usuario getUsuarioE() {
+	public Usuario getUsuarioE() {
 		return usuarioE;
 	}
 
-	protected void setUsuarioE(Usuario usuarioE) {
+	public void setUsuarioE(Usuario usuarioE) {
 		this.usuarioE = usuarioE;
 	}
 	
