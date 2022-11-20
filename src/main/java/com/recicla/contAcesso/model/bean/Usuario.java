@@ -2,6 +2,8 @@ package com.recicla.contAcesso.model.bean;
 
 import java.util.Date;
 
+import com.recicla.util.model.bean.Status;
+
 public class Usuario {
 	private Integer id;
 	private Integer id_pessoa;
@@ -12,7 +14,10 @@ public class Usuario {
 	private String tipo;
 	private Date data_inicio;
 	private Date data_fim;
-	
+	private Acesso acesso;
+	private Pessoa pessoa;
+	private Status status;
+
 	public Usuario() {
 	}
 	
@@ -130,6 +135,31 @@ public class Usuario {
 	public void setData_fim(Date data_fim) {
 		this.data_fim = data_fim;
 	}
+	
+	public Acesso getAcesso() {
+		return acesso;
+	}
+
+	public void setAcesso(Acesso acesso) {
+		this.acesso = acesso;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 
 	@Override
 	public String toString() {

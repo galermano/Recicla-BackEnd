@@ -1,5 +1,7 @@
 package com.recicla.contAcesso.model.bean;
 
+import com.recicla.coleta.model.bean.Logradouro;
+
 public class Pessoa {
 	
 	private Integer id;
@@ -7,7 +9,8 @@ public class Pessoa {
 	private Integer identificacao;
 	private Integer tipo;
 	private Integer id_logradouro;
-	
+	private Logradouro logradouro;
+
 	public Pessoa(Integer id, String nome, Integer identificacao, Integer tipo, Integer id_logradouro) {
 		this.id = id;
 		this.nome = nome;
@@ -73,6 +76,15 @@ public class Pessoa {
 	public void setId_logradouro(Integer id_logradouro) {
 		this.id_logradouro = id_logradouro;
 	}
+
+	public Logradouro getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(Logradouro logradouro) {
+		this.logradouro = logradouro;
+	}
+
 
 	@Override
 	public String toString() {
