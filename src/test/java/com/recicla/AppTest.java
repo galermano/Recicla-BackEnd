@@ -48,7 +48,9 @@ public class AppTest
         		TestTransporte.class,
         		TestVeiculo.class,
         		TestStatus.class,
-        		TestHistoricoStatus.class   		
+        		TestHistoricoStatus.class,
+        		TestHistoricoAcesso.class   		
+
 
 );
     }
