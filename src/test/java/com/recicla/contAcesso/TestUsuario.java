@@ -72,7 +72,7 @@ public class TestUsuario extends TestCase {
         Date data_inicio = new Date();
         Date data_fim = formatter.parse("31-12-2022");
 
-        Usuario newCol = new Usuario(1, 1, 1, "usuario1@email.com", "password1",
+        Usuario newCol = new Usuario(1,1, 1, 1, "usuario1@email.com", "password1",
                 new java.sql.Date(data_inicio.getTime()), new java.sql.Date(data_fim.getTime()));
 
         ControllerUsuario contCol = new ControllerUsuario();
