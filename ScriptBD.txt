@@ -29,3 +29,22 @@ CREATE TABLE sta_status (
     nome varchar(255),
     descricao varchar(255)
 );
+
+CREATE TABLE tr_TipoVeiculo (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+	 nome varchar(255),
+     descricao varchar(255)
+);
+
+CREATE TABLE transporte (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    recipiente varchar(255)
+);
+    
+CREATE TABLE veiculo (
+     id integer(10) PRIMARY KEY AUTO_INCREMENT, 
+     placa varchar(255)
+     id_tipo Integer integer(10)
+     capacidade integer(10)
+     usuario_id integer(10)
+);

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.recicla.transporte.model.been.Veiculo;
-//import com.recicla.util.model.bean.ConexaoDB;
+import com.recicla.util.model.bean.ConexaoDB;
 
 public class DaoVeiculo {
 	private final Connection c;
@@ -20,18 +20,17 @@ public class DaoVeiculo {
 
 	public Veiculo inserir(Veiculo tr) throws SQLException, ClassNotFoundException {
 		String sql = "insert into tr_Veiculo"
-				+ " (id_status, compl, quantidade, data_sol, data_con, id_logradouro_r, id_logradouro_e, id_usuario_r, id_usuario_e)"
-				+ " values (?,?,?,?,?,?,?,?,?)";
+				+ " (placa, id_tipo, capacidade, usuario_id)"
+				+ " values (?,?,?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		// seta os valores
-		stmt.setInt(1, tr.getId());
-		stmt.setString(2, tr.getPlaca());
-		stmt.setInt(3, tr.getIdtipo());
-		stmt.setInt(4, tr.getCapacidade());
-		stmt.setInt(5, tr.getIdusuario());
+		stmt.setString(1, tr.getPlaca());
+		stmt.setInt(2, tr.getIdtipo());
+		stmt.setInt(3, tr.getCapacidade());
+		stmt.setInt(4, tr.getIdusuario());
 
 		// executa
 		stmt.executeUpdate();
@@ -45,16 +44,15 @@ public class DaoVeiculo {
 	}
 
 	public Veiculo alterar(Veiculo tr) throws SQLException {
-		String sql = "UPDATE tr_Veiculo SET id_status = ?, compl = ?, quantidade = ?, data_sol = ?, data_con = ?, id_logradouro_r = ?, id_logradouro_e = ?, id_usuario_r = ?, id_usuario_e = ? WHERE id = ?";
+		String sql = "UPDATE tr_Veiculo SET placa = ?, id_tipo = ?, capacidade = ?, usuario_id = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
-		stmt.setInt(1, tr.getId());
-		stmt.setString(2, tr.getPlaca());
-		stmt.setInt(3, tr.getIdtipo());
-		stmt.setInt(4, tr.getCapacidade());
-		stmt.setInt(5, tr.getIdusuario());
-		stmt.setInt(6, tr.getId());
+		stmt.setString(1, tr.getPlaca());
+		stmt.setInt(2, tr.getIdtipo());
+		stmt.setInt(3, tr.getCapacidade());
+		stmt.setInt(4, tr.getIdusuario());
+		stmt.setInt(5, tr.getId());
 
 		// executa
 		stmt.execute();

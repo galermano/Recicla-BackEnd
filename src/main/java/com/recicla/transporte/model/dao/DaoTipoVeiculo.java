@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.recicla.transporte.model.been.TipoVeiculo;
-//import com.recicla.util.model.bean.ConexaoDB;
+import com.recicla.util.model.bean.ConexaoDB;
 
 public class DaoTipoVeiculo {
 	private final Connection c;
@@ -19,17 +19,14 @@ public class DaoTipoVeiculo {
 	}
 
 	public TipoVeiculo inserir(TipoVeiculo tr) throws SQLException, ClassNotFoundException {
-		String sql = "insert into tr_TipoVeiculo"
-				+ " (id_status, compl, quantidade, data_sol, data_con, id_logradouro_r, id_logradouro_e, id_usuario_r, id_usuario_e)"
-				+ " values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into tr_TipoVeiculo" + " (nome, descricao)" + " values (?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		// seta os valores
-		stmt.setInt(1, tr.getId());
-		stmt.setString(2, tr.getNome());
-		stmt.setString(3, tr.getDescricao());
+		stmt.setString(1, tr.getNome());
+		stmt.setString(2, tr.getDescricao());
 
 		// executa
 		stmt.executeUpdate();
@@ -43,12 +40,11 @@ public class DaoTipoVeiculo {
 	}
 
 	public TipoVeiculo alterar(TipoVeiculo tr) throws SQLException {
-		String sql = "UPDATE tr_TipoVeiculo SET id_status = ?, compl = ?, quantidade = ?, data_sol = ?, data_con = ?, id_logradouro_r = ?, id_logradouro_e = ?, id_usuario_r = ?, id_usuario_e = ? WHERE id = ?";
+		String sql = "UPDATE tr_TipoVeiculo SET nome = ?, descricao = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
-		stmt.setInt(1, tr.getId());
-		stmt.setString(2, tr.getNome());
+		stmt.setString(1, tr.getNome());
 		stmt.setString(2, tr.getDescricao());
 		stmt.setInt(3, tr.getId());
 
@@ -74,9 +70,8 @@ public class DaoTipoVeiculo {
 		stmt.close();
 		return retorno;
 	}
-	
-	
-	//method list still in progress
+
+	// method list still in progress
 	public List<TipoVeiculo> listar(TipoVeiculo trEnt) throws SQLException {
 		// trs: array armazena a lista de registros
 

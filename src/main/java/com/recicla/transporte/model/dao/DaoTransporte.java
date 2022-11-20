@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.recicla.transporte.model.been.Transporte;
-//import com.recicla.util.model.bean.ConexaoDB;
+import com.recicla.util.model.bean.ConexaoDB;
 
 public class DaoTransporte {
 	private final Connection c;
@@ -20,15 +20,14 @@ public class DaoTransporte {
 
 	public Transporte inserir(Transporte tr) throws SQLException, ClassNotFoundException {
 		String sql = "insert into tr_transporte"
-				+ " (id_status, compl, quantidade, data_sol, data_con, id_logradouro_r, id_logradouro_e, id_usuario_r, id_usuario_e)"
-				+ " values (?,?,?,?,?,?,?,?,?)";
+				+ " (recipiente)"
+				+ " values (?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		// seta os valores
-		stmt.setInt(1, tr.getId());
-		stmt.setString(2, tr.getRecipiente());
+		stmt.setString(1, tr.getRecipiente());
 
 		// executa
 		stmt.executeUpdate();
@@ -42,13 +41,12 @@ public class DaoTransporte {
 	}
 
 	public Transporte alterar(Transporte tr) throws SQLException {
-		String sql = "UPDATE tr_transporte SET id_status = ?, compl = ?, quantidade = ?, data_sol = ?, data_con = ?, id_logradouro_r = ?, id_logradouro_e = ?, id_usuario_r = ?, id_usuario_e = ? WHERE id = ?";
+		String sql = "UPDATE tr_transporte SET recipiente = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
-		stmt.setInt(1, tr.getId());
-		stmt.setString(2, tr.getRecipiente());
-		stmt.setInt(3, tr.getId());
+		stmt.setString(1, tr.getRecipiente());
+		stmt.setInt(2, tr.getId());
 
 		// executa
 		stmt.execute();
