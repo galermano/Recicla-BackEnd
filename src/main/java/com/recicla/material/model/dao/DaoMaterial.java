@@ -83,7 +83,7 @@ public class DaoMaterial {
     public List<Material> listar(Material matEnt) throws SQLException {
         List<Material> mats = new ArrayList<Material>();
 
-        String sql = "select * from mat_material where id like ?";
+        String sql = "select * from mat_material where nome like ?";
         PreparedStatement stmt = this.c.prepareStatement(sql);
         stmt.setString(1, "%" + matEnt.getNome() + "%");
         ResultSet rs = stmt.executeQuery();

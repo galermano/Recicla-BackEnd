@@ -56,4 +56,12 @@ public class TipoMaterial {
     public void setEspecificacao(String especificacao) {
         this.especificacao = especificacao;
     }
+
+	@Override
+	public String toString() {
+		return "TipoMaterial [id=" + id + ", especificacao=" + especificacao + ", nome=" + nome + ", descricao="
+				+ descricao + "]";
+	}
+    
+    
 }

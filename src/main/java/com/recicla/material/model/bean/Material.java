@@ -1,3 +1,4 @@
+@ -0,0 +1,84 @@
 package com.recicla.material.model.bean;
 
 /**
@@ -22,6 +23,13 @@ public class Material {
 
     public Material(int id, int id_tipo_material, String nome, String descricao) {
         this.id = id;
+        this.id_tipo_material = id_tipo_material;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    
+    public Material( int id_tipo_material, String nome, String descricao) {
         this.id_tipo_material = id_tipo_material;
         this.nome = nome;
         this.descricao = descricao;
@@ -66,4 +74,12 @@ public class Material {
     public void setTipoMat(TipoMaterial tipoMat) {
         this.tipoMat = tipoMat;
     }
+
+	@Override
+	public String toString() {
+		return "Material [id=" + id + ", id_tipo_material=" + id_tipo_material + ", tipoMat=" + tipoMat + ", nome="
+				+ nome + ", descricao=" + descricao + "]";
+	}
+    
+    
 }
