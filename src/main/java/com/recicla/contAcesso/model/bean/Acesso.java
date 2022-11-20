@@ -5,8 +5,9 @@ public class Acesso {
 	private Integer id;
 	private Integer id_modulo;
 	private String tipo;
+	private Modulo modulo;
 	
-	
+
 	public Acesso(Integer id, Integer id_modulo, String tipo) {
 		this.id = id;
 		this.id_modulo = id_modulo;
@@ -41,6 +42,14 @@ public class Acesso {
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public Modulo getModulo() {
+		return modulo;
+	}
+
+	public void setModulo(Modulo modulo) {
+		this.modulo = modulo;
 	}
 	
 	public Acesso( Integer id_modulo, String tipo, Integer id) {
