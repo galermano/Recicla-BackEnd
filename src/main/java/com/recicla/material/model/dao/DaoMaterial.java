@@ -59,9 +59,9 @@ public class DaoMaterial {
     }
 
     public Material alterar(Material mat) throws SQLException {
-        String sql = "UPDATE mat_material SET id_tipo_material, SET nome = ?, descricao = ? WHERE id = ?";
+        String sql = "UPDATE mat_material SET id_tipo_material = ?, nome = ?, descricao = ? WHERE id = ?";
         PreparedStatement stmt = c.prepareStatement(sql);
-        stmt.setInt(1, mat.getId());
+        stmt.setInt(1, mat.getId_tipo_material());
         stmt.setString(2, mat.getNome());
         stmt.setString(3, mat.getDescricao());
         stmt.setInt(4, mat.getId());
@@ -94,7 +94,7 @@ public class DaoMaterial {
                     rs.getString(3),
                     rs.getString(4)
             );
-            mats.add(matEnt);
+            mats.add(mat);
         }
         rs.close();
         stmt.close();

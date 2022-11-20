@@ -49,29 +49,26 @@ public class TestMaterial extends TestCase {
 	 	ControllerMaterial contCol = new ControllerMaterial();
 	 	assertNotNull(contCol.listar(newCol));
         System.out.println(newCol);
+
 	 }
 
-	// @Test
-	// @DisplayName("Teste de excluir de Material")
-	// public void testExcluirMaterial() throws ClassNotFoundException, SQLException, ParseException {
-	// 	Material newCol = new Material(1);
-	// 	ControllerMaterial contCol = new ControllerMaterial();
+	 @Test
+	 @DisplayName("Teste de excluir de Material")
+	 public void testExcluirMaterial() throws ClassNotFoundException, SQLException, ParseException {
+	 	Material newCol = new Material(3);
+	 	ControllerMaterial contCol = new ControllerMaterial();
 
-	// 	assertNotNull(contCol.excluir(newCol));
-	// }
+	 	assertNotNull(contCol.excluir(newCol));
+	 }
 
-	// @Test
-	// @DisplayName("Teste de alterar de Material")
-	// public void testAlterarMaterial() throws ClassNotFoundException, SQLException, ParseException {
-	// 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-	// 	Date dataSol = new Date();
-	// 	Date dataCon = formatter.parse("30-11-2022");
-	// 	Material newCol = new Material(1, 1, "Bloco B", 3, new java.sql.Date(dataSol.getTime()),
-	// 			new java.sql.Date(dataCon.getTime()), 3, 4, 3, 4);
+	 @Test
+	 @DisplayName("Teste de alterar de Material")
+	 public void testAlterarMaterial() throws ClassNotFoundException, SQLException, ParseException {
+			Material newCol = new Material(3,"latinha de cerveja","descricao");
 
-	// 	ControllerMaterial contCol = new ControllerMaterial();
-	// 	assertNotNull(contCol.alterar(newCol).getId());
+		ControllerMaterial contCol = new ControllerMaterial();
+	 	assertNotNull(contCol.alterar(newCol).getId());
 
-	// }
+	 }
 
 }

@@ -33,16 +33,17 @@ CREATE TABLE transporte (
     
 CREATE TABLE veiculo (
      id integer(10) PRIMARY KEY AUTO_INCREMENT, 
-     placa varchar(255)
-     id_tipo Integer integer(10)
-     capacidade integer(10)
-     usuario_id integer(10)
+     placa varchar(255),
+     id_tipo Integer (10),
+     capacidade integer(10),
+     usuario_id integer(10));
 
-create table tim_tipo_material(
-    id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE tim_tipo_material(
+    id integer(10) PRIMARY KEY AUTO_INCREMENT, 
     nome VARCHAR(255),
     descricao VARCHAR(255),
-    especificacao VARCHAR(255));
+    especificacao VARCHAR(255)
+);
 
 create table htm_historicoTipoMaterial(
     id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -125,5 +126,7 @@ CREATE TABLE col_coleta (
     FOREIGN KEY (id_usuario_r) REFERENCES usu_usuario(id),
     id_usuario_e integer(10),
     FOREIGN KEY (id_usuario_e) REFERENCES usu_usuario(id)
-
 );
+
+insert into tim_tipo_material (nome, descricao, especificacao) values ("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios"),
+("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios")

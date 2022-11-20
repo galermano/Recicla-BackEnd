@@ -31,9 +31,7 @@ public class ControllerMaterial {
 
     public Material buscar(Material mat) throws SQLException, ClassNotFoundException {
         daoMat = new DaoMaterial();
-        System.out.println(mat);
         mat = daoMat.buscar(mat);
-        System.out.println(mat);
         ControllerTipoMaterial contTm = new ControllerTipoMaterial();
         TipoMaterial tipoTm = new TipoMaterial(mat.getId_tipo_material());
         mat.setTipoMat(contTm.buscar(tipoTm));
