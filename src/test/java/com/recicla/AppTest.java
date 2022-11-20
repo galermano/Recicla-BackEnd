@@ -4,6 +4,7 @@ import com.recicla.coleta.*;
 import com.recicla.contAcesso.*;
 import com.recicla.material.*;
 import com.recicla.transporte.*;
+import com.recicla.util.*;
 
 
 import junit.framework.Test;
@@ -45,7 +46,10 @@ public class AppTest
         		TestTipoMaterial.class,
         		TestTipoVeiculo.class,
         		TestTransporte.class,
-        		TestVeiculo.class   		
+        		TestVeiculo.class,
+        		TestStatus.class,
+        		TestHistoricoStatus.class   		
+
 );
     }
 
