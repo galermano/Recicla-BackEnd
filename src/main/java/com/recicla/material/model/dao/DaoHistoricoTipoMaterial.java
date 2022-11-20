@@ -59,7 +59,7 @@ public class DaoHistoricoTipoMaterial {
     }
 
     public HistoricoTipoMaterial alterar(HistoricoTipoMaterial histTipoMat) throws SQLException {
-        String sql = "UPDATE htm_historicoTipoMaterial SET nome = ?, SET descricao = ?, especificacao = ? WHERE id = ?";
+        String sql = "UPDATE htm_historicoTipoMaterial SET nome = ?, descricao = ?, especificacao = ? WHERE id = ?";
         PreparedStatement stmt = c.prepareStatement(sql);
         stmt.setString(1, histTipoMat.getNome());
         stmt.setString(2, histTipoMat.getDescricao());
@@ -83,7 +83,7 @@ public class DaoHistoricoTipoMaterial {
     public List<HistoricoTipoMaterial> listar(HistoricoTipoMaterial histTipoMatEnt) throws SQLException {
         List<HistoricoTipoMaterial> histTipoMats = new ArrayList<HistoricoTipoMaterial>();
 
-        String sql = "select * from htm_historicoTipoMaterial where id like ?";
+        String sql = "select * from htm_historicoTipoMaterial where nome like ?";
         PreparedStatement stmt = this.c.prepareStatement(sql);
         stmt.setString(1, "%" + histTipoMatEnt.getNome() + "%");
         ResultSet rs = stmt.executeQuery();
@@ -94,7 +94,7 @@ public class DaoHistoricoTipoMaterial {
                     rs.getString(3),
                     rs.getString(4)
             );
-            histTipoMats.add(histTipoMatEnt);
+            histTipoMats.add(histTipoMat);
         }
         rs.close();
         stmt.close();

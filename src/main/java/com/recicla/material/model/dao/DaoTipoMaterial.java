@@ -59,7 +59,7 @@ public class DaoTipoMaterial {
     }
 
     public TipoMaterial alterar(TipoMaterial tipoMat) throws SQLException {
-        String sql = "UPDATE tim_tipo_material SET nome = ?, SET descricao = ?, especificacao = ? WHERE id = ?";
+        String sql = "UPDATE tim_tipo_material SET nome = ?, descricao = ?, especificacao = ? WHERE id = ?";
         PreparedStatement stmt = c.prepareStatement(sql);
         stmt.setString(1, tipoMat.getNome());
         stmt.setString(2, tipoMat.getDescricao());
@@ -83,7 +83,7 @@ public class DaoTipoMaterial {
     public List<TipoMaterial> listar(TipoMaterial tipoMatEnt) throws SQLException {
         List<TipoMaterial> tipoMats = new ArrayList<TipoMaterial>();
 
-        String sql = "select * from tim_tipo_material where id like ?";
+        String sql = "select * from tim_tipo_material where nome like ?";
         PreparedStatement stmt = this.c.prepareStatement(sql);
         stmt.setString(1, "%" + tipoMatEnt.getNome() + "%");
         ResultSet rs = stmt.executeQuery();
@@ -94,7 +94,7 @@ public class DaoTipoMaterial {
                     rs.getString(3),
                     rs.getString(4)
             );
-            tipoMats.add(tipoMatEnt);
+            tipoMats.add(tipoMat);
         }
         rs.close();
         stmt.close();

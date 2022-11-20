@@ -25,6 +25,12 @@ public class TipoMaterial {
         this.descricao = descricao;
     }
 
+    public TipoMaterial(String especificacao, String nome, String descricao) {
+        this.especificacao = especificacao;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+    
     public int getId() {
         return id;
     }

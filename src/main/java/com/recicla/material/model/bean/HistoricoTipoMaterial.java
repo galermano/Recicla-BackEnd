@@ -25,12 +25,24 @@ public class HistoricoTipoMaterial {
         this.nome = nome;
         this.descricao = descricao;
     }
+    
+    public HistoricoTipoMaterial(String especificacao, String nome, String descricao) {
+        this.especificacao = especificacao;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    @Override
+	public String toString() {
+		return "HistoricoTipoMaterial [id=" + id + ", especificacao=" + especificacao + ", nome=" + nome
+				+ ", descricao=" + descricao + "]";
+	}
+
+	public void setId(int id) {
         this.id = id;
     }
 

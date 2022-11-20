@@ -61,13 +61,14 @@ public class DaoHistoricoMaterial {
     }
 
     public HistoricoMaterial alterar(HistoricoMaterial histMat) throws SQLException {
-        String sql = "UPDATE hm_historicoMaterial SET id_material = ?, id_tipo_material = ?, SET nome = ?, descricao = ? WHERE id = ?";
+    	System.out.println(histMat);
+        String sql = "UPDATE hm_historicoMaterial SET id_material = ?, id_tipo_material = ?, nome = ?, descricao = ? WHERE id = ?";
         PreparedStatement stmt = c.prepareStatement(sql);
         stmt.setInt(1, histMat.getId_material());
         stmt.setInt(2, histMat.getId_tipo_material());
         stmt.setString(3, histMat.getNome());
         stmt.setString(4, histMat.getDescricao());
-        stmt.setInt(4, histMat.getId());
+        stmt.setInt(5, histMat.getId());
         stmt.execute();
         stmt.close();
         return histMat;
@@ -86,7 +87,7 @@ public class DaoHistoricoMaterial {
     public List<HistoricoMaterial> listar(HistoricoMaterial histMatEnt) throws SQLException {
         List<HistoricoMaterial> histMats = new ArrayList<HistoricoMaterial>();
 
-        String sql = "select * from hm_historicoMaterial where id like ?";
+        String sql = "select * from hm_historicoMaterial where nome like ?";
         PreparedStatement stmt = this.c.prepareStatement(sql);
         stmt.setString(1, "%" + histMatEnt.getNome() + "%");
         ResultSet rs = stmt.executeQuery();
@@ -98,7 +99,7 @@ public class DaoHistoricoMaterial {
                     rs.getString(4),
                     rs.getString(5)
             );
-            histMats.add(histMatEnt);
+            histMats.add(histMat);
         }
         rs.close();
         stmt.close();

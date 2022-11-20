@@ -27,6 +27,27 @@ public class HistoricoMaterial {
         this.nome = nome;
         this.descricao = descricao;
     }
+
+    public HistoricoMaterial(int id) {
+        this.id = id;
+    }
+
+    public HistoricoMaterial(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "HistoricoMaterial [id=" + id + ", id_material=" + id_material + ", id_tipo_material=" + id_tipo_material
+                + ", nome=" + nome + ", descricao=" + descricao + "]";
+    }
+
+    public HistoricoMaterial(int id_material, int id_tipo_material, String nome, String descricao) {
+        this.id_material = id_material;
+        this.id_tipo_material = id_tipo_material;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
     
     public int getId_material() {
         return id_material;
