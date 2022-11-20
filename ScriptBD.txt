@@ -151,8 +151,8 @@ INSERT INTO `sta_status`( `nome`, `descricao`) VALUES ('ativo','esta logado'),('
 INSERT INTO `pes_pessoa`( `nome`, `identificacao`, `tipo`, `id_logradouro`) VALUES ("GABRIEL BONAMICO","593275647","1","3"),("LAULO CELIO","593613647","3","1"),
 ("KAWAN XIMENDES","723575647","2","3"),("FLABIO DIAS","593254727","1","3"),("ALEX BITENCAS","59326354","1","3");
 
-INSERT INTO `usu_usuario`(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha`, `tipo`, `data_inicio`, `data_fim`) VALUES (1,1,1,"alex","bitencas","admin","10/05/2022","25/12/2022"),
-(1,1,1,"gabriel","bona","admin","10/05/2022","25/12/2022"),(1,1,1,"fabio","dias","admin","10/05/2022","25/12/2022"),(1,1,1,"laulo","celio","admin","10/05/2022","25/12/2022");
+INSERT INTO `usu_usuario`(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha`, `tipo`, `data_inicio`, `data_fim`) VALUES (1,1,1,"alex","bitencas","admin","10-05-2022","25-12-2022"),
+(1,1,1,"gabriel","bona","admin","10-05-2022","25-12-2022"),(1,1,1,"fabio","dias","admin","10-05-2022","25-12-2022"),(1,1,1,"laulo","celio","admin","10-05-2022","25-12-2022");
 
 INSERT INTO `tip_tipoveiculo`( `nome`, `descricao`)values ("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),
 ("caminhao","veiculo grande"),("caminhao","veiculo grande")

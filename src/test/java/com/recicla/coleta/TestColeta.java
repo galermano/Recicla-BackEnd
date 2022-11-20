@@ -16,8 +16,7 @@ import com.recicla.coleta.model.bean.Coleta;
 
 import junit.framework.TestCase;
 
-
-public class TestColeta extends TestCase {
+public class TestColeta extends TestCase  {
 
 	 @Test
 	 @DisplayName("Teste de inserção de Coleta")
