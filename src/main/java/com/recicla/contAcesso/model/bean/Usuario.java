@@ -11,7 +11,6 @@ public class Usuario {
 	private Integer id_acesso;
 	private String login;
 	private String senha;
-	private String tipo;
 	private Date data_inicio;
 	private Date data_fim;
 	private Acesso acesso;
@@ -21,7 +20,7 @@ public class Usuario {
 	public Usuario() {
 	}
 	
-	public Usuario(Integer id, Integer id_pessoa, Integer id_status, Integer id_acesso, String login, String senha, String tipo,
+	public Usuario(Integer id, Integer id_pessoa, Integer id_status, Integer id_acesso, String login, String senha,
 			Date data_inicio, Date data_fim) {
 		
 		this.id = id;
@@ -30,12 +29,11 @@ public class Usuario {
 		this.id_acesso = id_acesso;
 		this.login = login;
 		this.senha = senha;
-		this.tipo = tipo;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
 	}
 	
-	public Usuario(Integer id_pessoa, Integer id_status, Integer id_acesso, String login, String senha, String tipo,
+	public Usuario(Integer id_pessoa, Integer id_status, Integer id_acesso, String login, String senha,
 			Date data_inicio, Date data_fim) {
 		
 		this.id_pessoa = id_pessoa;
@@ -43,7 +41,6 @@ public class Usuario {
 		this.id_acesso = id_acesso;
 		this.login = login;
 		this.senha = senha;
-		this.tipo = tipo;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
 	}
@@ -110,15 +107,6 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	public String getTipo() {
-		return tipo;
-	}
-	
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
 
 	public Date getData_inicio() {
 		return data_inicio;
@@ -164,7 +152,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", id_pessoa=" + id_pessoa + ", id_status=" + id_status + ", id_acesso="
-				+ id_acesso + ", login=" + login + ", senha=" + senha + ", tipo=" + tipo + ", data_inicio="
+				+ id_acesso + ", login=" + login + ", senha=" + senha + ", data_inicio="
 				+ data_inicio + ", data_fim=" + data_fim + "]";
 	}
 
