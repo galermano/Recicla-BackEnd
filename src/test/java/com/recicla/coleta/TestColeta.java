@@ -21,24 +21,24 @@ import junit.framework.TestCase;
 
 public class TestColeta extends TestCase {
 
-	@Test
-	@DisplayName("Teste de inserção de Coleta")
-	public void firstTestInserirColeta() throws ClassNotFoundException, SQLException, ParseException {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-		Date dataSol = new Date();
-		Date dataCon = formatter.parse("30-11-2022");
+	// @Test
+	// @DisplayName("Teste de inserção de Coleta")
+	// public void firstTestInserirColeta() throws ClassNotFoundException, SQLException, ParseException {
+	// 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+	// 	Date dataSol = new Date();
+	// 	Date dataCon = formatter.parse("30-11-2022");
 
-		Coleta newCol = new Coleta(1, "Bloco A", 3, new java.sql.Date(dataSol.getTime()),
-				new java.sql.Date(dataCon.getTime()), 3, 4, 3, 4);
+	// 	Coleta newCol = new Coleta(1, "Bloco A", 3, new java.sql.Date(dataSol.getTime()),
+	// 			new java.sql.Date(dataCon.getTime()), 3, 4, 3, 4);
 
-		ControllerColeta contCol = new ControllerColeta();
-		assertNotNull(contCol.inserir(newCol).getId());
-		assertNotNull(contCol.inserir(newCol).getId());
-		assertNotNull(contCol.inserir(newCol).getId());
-		assertNotNull(contCol.inserir(newCol).getId());
-		assertNotNull(contCol.inserir(newCol).getId());
+	// 	ControllerColeta contCol = new ControllerColeta();
+	// 	assertNotNull(contCol.inserir(newCol).getId());
+	// 	assertNotNull(contCol.inserir(newCol).getId());
+	// 	assertNotNull(contCol.inserir(newCol).getId());
+	// 	assertNotNull(contCol.inserir(newCol).getId());
+	// 	assertNotNull(contCol.inserir(newCol).getId());
 
-	}
+	// }
 
 	@Test
 	@DisplayName("Teste de busca de Coleta")

@@ -1,5 +1,6 @@
 package com.recicla.coleta.model.bean;
 
+import com.recicla.contAcesso.model.bean.Usuario;
 import java.sql.Date;
 
 public class Coleta {
@@ -16,11 +17,13 @@ public class Coleta {
 	//Id de logradouro de entrega (daonde entrega)
 	private int idLogradouroE;
 	private Logradouro logradouroE;
+	//Id de Usuario  de entrega (daonde entrega)
 	private int idUsuarioR;
-	// private UsuarioR usuarioR;
+	private Usuario usuarioR;
+	//Id de Usuario  de entrega (daonde entrega)
 	private int idUsuarioE;
-	// private UsuarioR usuarioE;
-	
+	private Usuario usuarioE;
+
 	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
 			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
 		super();
@@ -37,7 +40,7 @@ public class Coleta {
 	}
 
 	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
-			Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE) {
+			Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
 		super();
 		this.id = id;
 		this.idStatus = idStatus;
@@ -50,11 +53,13 @@ public class Coleta {
 		this.idLogradouroE = idLogradouroE;
 		this.logradouroE = logradouroE;
 		this.idUsuarioR = idUsuarioR;
+		this.usuarioR = usuarioR;
 		this.idUsuarioE = idUsuarioE;
+		this.usuarioE = usuarioE;
 	}
 
 	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
-			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
+	Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
 		super();
 		this.idStatus = idStatus;
 		this.compl = compl;
@@ -62,9 +67,13 @@ public class Coleta {
 		this.dataSol = dataSol;
 		this.dataCon = dataCon;
 		this.idLogradouroR = idLogradouroR;
+		this.logradouroR = logradouroR;
 		this.idLogradouroE = idLogradouroE;
+		this.logradouroE = logradouroE;
 		this.idUsuarioR = idUsuarioR;
+		this.usuarioR = usuarioR;
 		this.idUsuarioE = idUsuarioE;
+		this.usuarioE = usuarioE;
 	}
 
 	public Coleta(Date dataSol) {
@@ -187,7 +196,21 @@ public class Coleta {
 		this.logradouroE = logradouroE;
 	}
 
-	
+	protected Usuario getUsuarioR() {
+		return usuarioR;
+	}
+
+	protected void setUsuarioR(Usuario usuarioR) {
+		this.usuarioR = usuarioR;
+	}
+
+	protected Usuario getUsuarioE() {
+		return usuarioE;
+	}
+
+	protected void setUsuarioE(Usuario usuarioE) {
+		this.usuarioE = usuarioE;
+	}
 	
 	
 }
