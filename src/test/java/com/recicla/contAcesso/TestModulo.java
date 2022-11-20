@@ -51,7 +51,7 @@ public class TestModulo extends TestCase {
     @Test
     @DisplayName("Teste de excluir de Modulo")
     public void testExcluirModulo() throws ClassNotFoundException, SQLException, ParseException {
-        Modulo newCol = new Modulo(2);
+        Modulo newCol = new Modulo(5);
         ControllerModulo contCol = new ControllerModulo();
 
         assertNotNull(contCol.excluir(newCol));
