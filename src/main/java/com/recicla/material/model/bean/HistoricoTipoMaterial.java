@@ -1,4 +1,4 @@
-package com.recicla.material.model.been;
+package com.recicla.material.model.bean;
 
 /**
  *
