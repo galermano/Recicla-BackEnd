@@ -19,6 +19,10 @@ CREATE TABLE sta_status (
     descricao varchar(255)
 );
 
+CREATE TABLE his_historico_status (
+    nome varchar(255),
+    descricao varchar(255)
+);
 
 CREATE TABLE tip_tipoveiculo (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
