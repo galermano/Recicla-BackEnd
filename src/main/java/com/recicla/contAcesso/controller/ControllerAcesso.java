@@ -29,7 +29,6 @@ public class ControllerAcesso {
 
 	public List<Acesso> listar(Acesso acess) throws ClassNotFoundException, SQLException {
 		DaoAcesso daoAcess = new DaoAcesso();
-		daoAcess = new DaoAcesso();
 		List<Acesso> listaAcess = daoAcess.listar(acess);
 		List<Acesso> listaAcessAux = new ArrayList<Acesso>();
 		for (Acesso acs : listaAcess) {
