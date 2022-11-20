@@ -1,4 +1,4 @@
-package com.recicla.material.model.been;
+package com.recicla.material.model.bean;
 
 /**
  *
@@ -8,6 +8,7 @@ public class Material {
 
     private int id;
     private int id_tipo_material;
+    private TipoMaterial tipoMat;
     private String nome;
     private String descricao;
 
@@ -56,5 +57,13 @@ public class Material {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public TipoMaterial getTipoMat() {
+        return tipoMat;
+    }
+
+    public void setTipoMat(TipoMaterial tipoMat) {
+        this.tipoMat = tipoMat;
     }
 }
