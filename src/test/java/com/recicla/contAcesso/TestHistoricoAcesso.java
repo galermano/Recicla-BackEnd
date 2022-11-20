@@ -14,56 +14,56 @@ import com.recicla.contAcesso.model.bean.HistoricoAcesso;
 import junit.framework.TestCase;
 
 public class TestHistoricoAcesso extends TestCase {
-	@Test
-	@DisplayName("Teste de inserção de HistoricoAcesso")
-	public void testInserirHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
+    @Test
+    @DisplayName("Teste de inserção de HistoricoAcesso")
+    public void testInserirHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
 
-		HistoricoAcesso newCol = new HistoricoAcesso(1,1,1,1);
+        HistoricoAcesso newCol = new HistoricoAcesso(1, 1, 1, 1);
 
-		ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
-		assertNotNull("nao encontrado", contCol.inserir(newCol).getId());
-		assertNotNull("nao encontrado", contCol.inserir(newCol).getId());
-		assertNotNull("nao encontrado", contCol.inserir(newCol).getId());
-		assertNotNull("nao encontrado", contCol.inserir(newCol).getId());
-		assertNotNull("nao encontrado", contCol.inserir(newCol).getId());
+        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
+        assertNotNull("nao encontrado", contCol.inserir(newCol).getId_usu());
+        assertNotNull("nao encontrado", contCol.inserir(newCol).getId_usu());
+        assertNotNull("nao encontrado", contCol.inserir(newCol).getId_usu());
+        assertNotNull("nao encontrado", contCol.inserir(newCol).getId_usu());
+        assertNotNull("nao encontrado", contCol.inserir(newCol).getId_usu());
 
-	}
+    }
 
-	@Test
-	@DisplayName("Teste de busca de HistoricoAcesso")
-	public void testBuscarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
-		HistoricoAcesso newCol = new HistoricoAcesso(4);
-		ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
+    @Test
+    @DisplayName("Teste de busca de HistoricoAcesso")
+    public void testBuscarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
+        HistoricoAcesso newCol = new HistoricoAcesso(4);
+        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
 
-		newCol = (contCol.buscar(newCol));
-	}
+        newCol = (contCol.buscar(newCol));
+    }
 
-	@Test
-	@DisplayName("Teste de listar de HistoricoAcesso")
-	public void testListarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
+    @Test
+    @DisplayName("Teste de listar de HistoricoAcesso")
+    public void testListarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
 
-		HistoricoAcesso newCol = new HistoricoAcesso(1);
-		ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
-		assertNotNull(contCol.listar(newCol));
+        HistoricoAcesso newCol = new HistoricoAcesso(1);
+        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
+        assertNotNull(contCol.listar(newCol));
 
-	}
+    }
 
-	@Test
-	@DisplayName("Teste de excluir de HistoricoAcesso")
-	public void testExcluirHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
-		HistoricoAcesso newCol = new HistoricoAcesso(5);
-		ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
+    @Test
+    @DisplayName("Teste de excluir de HistoricoAcesso")
+    public void testExcluirHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
+        HistoricoAcesso newCol = new HistoricoAcesso(5);
+        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
 
-		assertNotNull(contCol.excluir(newCol));
-	}
+        assertNotNull(contCol.excluir(newCol));
+    }
 
-	@Test
-	@DisplayName("Teste de alterar de HistoricoAcesso")
-	public void testAlterarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
-		HistoricoAcesso newCol = new HistoricoAcesso(1, 2, 2, 2);
+    @Test
+    @DisplayName("Teste de alterar de HistoricoAcesso")
+    public void testAlterarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
+        HistoricoAcesso newCol = new HistoricoAcesso(1, 2, 2, 2);
 
-		ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
-		assertNotNull(contCol.alterar(newCol).getId());
+        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
+        assertNotNull(contCol.alterar(newCol).getId_usu());
 
-	}
+    }
 }
