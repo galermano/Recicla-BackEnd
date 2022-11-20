@@ -36,7 +36,7 @@ public class ControllerVeiculo {
 	public List<Veiculo> listar(Veiculo TR) throws ClassNotFoundException, SQLException {
 		daoVei = new DaoVeiculo();
     	List<Veiculo> listaVeiculo = daoVei.listar(TR);
-    	List<Veiculo> listaVeiculoAux = new ArrayList<>();
+    	List<Veiculo> listaVeiculoAux = new ArrayList<Veiculo>();
     	for(Veiculo veiaux : listaVeiculo) {
     		listaVeiculoAux.add(buscar(veiaux));
     	}

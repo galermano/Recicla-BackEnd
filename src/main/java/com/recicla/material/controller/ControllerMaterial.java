@@ -43,7 +43,7 @@ public class ControllerMaterial {
     public List<Material> listar(Material mat) throws SQLException, ClassNotFoundException {
         daoMat = new DaoMaterial();
     	List<Material> listaMaterial = daoMat.listar(mat);
-    	List<Material> listaMaterialAux = new ArrayList<>();
+    	List<Material> listaMaterialAux = new ArrayList<Material>();
     	for(Material mataux : listaMaterial) {
     		listaMaterialAux.add(buscar(mataux));
     	}
