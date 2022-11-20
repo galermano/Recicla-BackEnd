@@ -1,4 +1,4 @@
-package com.recicla.transporte.model.been;
+package com.recicla.transporte.model.bean;
 
 public class Veiculo {
 

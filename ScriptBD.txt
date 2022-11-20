@@ -1,22 +1,4 @@
-create DATABASE RECICLA;
-CREATE TABLE col_coleta (
-    id integer(10) PRIMARY KEY AUTO_INCREMENT,
-    id_status integer(10),
-    compl varchar(255),
-    quantidade integer(10),
-    data_sol date,
-    data_con date,
-    id_logradouro_r integer(10),
-    id_logradouro_e integer(10),
-    id_usuario_r integer(10),
-    id_usuario_e integer(10)
-);
-
-CREATE TABLE log_logradouro (
-    id integer(10) PRIMARY KEY AUTO_INCREMENT,
-    id_regiao integer(10),
-    cep varchar(255)
-);
+create DATABASE recicla;
 
 CREATE TABLE reg_regiao (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
@@ -24,11 +6,19 @@ CREATE TABLE reg_regiao (
     descricao varchar(255)
 );
 
+CREATE TABLE log_logradouro (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    id_regiao integer(10),
+    FOREIGN KEY (id_regiao) REFERENCES reg_regiao(id),
+    cep varchar(255)
+);
+
 CREATE TABLE sta_status (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     nome varchar(255),
     descricao varchar(255)
 );
+
 
 CREATE TABLE tr_TipoVeiculo (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
@@ -47,4 +37,93 @@ CREATE TABLE veiculo (
      id_tipo Integer integer(10)
      capacidade integer(10)
      usuario_id integer(10)
+
+create table tim_tipo_material(
+    id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255),
+    descricao VARCHAR(255),
+    especificacao VARCHAR(255));
+
+create table htm_historicoTipoMaterial(
+    id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255),
+    descricao VARCHAR(255),
+    especificacao VARCHAR(255));
+
+create table hm_historicoMaterial(
+    id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_material INTEGER(10),
+    id_tipo_material INTEGER(10),
+    nome VARCHAR(255),
+    descricao VARCHAR(255));
+
+CREATE TABLE his_historicoacesso (
+  id int(10) PRIMARY KEY AUTO_INCREMENT,
+  id_usu int(11) NOT NULL,
+  dataAcesso date NOT NULL
+);
+
+CREATE TABLE mod_modulo (
+  id int(11) PRIMARY KEY AUTO_INCREMENT,
+  nome varchar(255) NOT NULL,
+  descricao varchar(255) NOT NULL
+);
+
+CREATE TABLE ace_acesso (
+  id int(11) PRIMARY KEY AUTO_INCREMENT,
+  id_modulo int(11) NOT NULL,
+  FOREIGN KEY (id_modulo) REFERENCES mod_modulo(id),
+  tipo varchar(255) NOT NULL
+) ;
+
+CREATE TABLE pes_pessoa (
+  id int(10) PRIMARY KEY AUTO_INCREMENT,
+  nome varchar(255) NOT NULL,
+  identificacao int(10) NOT NULL,
+  tipo int(10) NOT NULL,
+  id_logradouro int(10) NOT NULL,
+  FOREIGN KEY (id_logradouro) REFERENCES log_logradouro(id)
+
+);
+
+create table mat_material(
+    id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_tipo_material INTEGER(10),
+    FOREIGN KEY (id_tipo_material) REFERENCES tim_tipo_material(id),
+    nome VARCHAR(50),
+    descricao VARCHAR(255)
+    );
+
+CREATE TABLE usu_usuario (
+  id int(10) PRIMARY KEY AUTO_INCREMENT,
+  id_pessoa int(10) NOT NULL,
+  FOREIGN KEY (id_pessoa) REFERENCES pes_pessoa(id),
+  id_status int(10) NOT NULL,
+  FOREIGN KEY (id_status) REFERENCES sta_status(id),
+  id_acesso int(11) NOT NULL,
+  FOREIGN KEY (id_acesso) REFERENCES ace_acesso(id),
+  login varchar(255) NOT NULL,
+  senha int(10) NOT NULL,
+  tipo varchar(255) NOT NULL,
+  data_inicio date NOT NULL,
+  data_fim date DEFAULT NULL
+);
+
+CREATE TABLE col_coleta (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT,
+    id_status integer(10),
+    FOREIGN KEY (id_status) REFERENCES sta_status(id),
+    compl varchar(255),
+    quantidade integer(10),
+    data_sol date,
+    data_con date,
+    id_logradouro_r integer(10),
+    FOREIGN KEY (id_logradouro_r) REFERENCES log_logradouro(id),
+    id_logradouro_e integer(10),
+    FOREIGN KEY (id_logradouro_e) REFERENCES log_logradouro(id),
+    id_usuario_r integer(10),
+    FOREIGN KEY (id_usuario_r) REFERENCES usu_usuario(id),
+    id_usuario_e integer(10),
+    FOREIGN KEY (id_usuario_e) REFERENCES usu_usuario(id)
+
 );
