@@ -1,4 +1,3 @@
-@ -0,0 +1,84 @@
 package com.recicla.material.model.bean;
 
 /**
