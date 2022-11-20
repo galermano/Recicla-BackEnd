@@ -20,24 +20,17 @@ CREATE TABLE sta_status (
 );
 
 
-CREATE TABLE tr_TipoVeiculo (
+CREATE TABLE tip_tipoveiculo (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
 	 nome varchar(255),
      descricao varchar(255)
 );
 
-CREATE TABLE transporte (
+CREATE TABLE tra_transporte (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     recipiente varchar(255)
 );
     
-CREATE TABLE veiculo (
-     id integer(10) PRIMARY KEY AUTO_INCREMENT, 
-     placa varchar(255),
-     id_tipo Integer (10),
-     capacidade integer(10),
-     usuario_id integer(10));
-
 CREATE TABLE tim_tipo_material(
     id integer(10) PRIMARY KEY AUTO_INCREMENT, 
     nome VARCHAR(255),
@@ -49,14 +42,16 @@ create table htm_historicoTipoMaterial(
     id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
     descricao VARCHAR(255),
-    especificacao VARCHAR(255));
+    especificacao VARCHAR(255)
+    );
 
 create table hm_historicoMaterial(
     id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_material INTEGER(10),
     id_tipo_material INTEGER(10),
     nome VARCHAR(255),
-    descricao VARCHAR(255));
+    descricao VARCHAR(255)
+    );
 
 CREATE TABLE his_historicoacesso (
   id int(10) PRIMARY KEY AUTO_INCREMENT,
@@ -93,7 +88,7 @@ create table mat_material(
     FOREIGN KEY (id_tipo_material) REFERENCES tim_tipo_material(id),
     nome VARCHAR(50),
     descricao VARCHAR(255)
-    );
+);
 
 CREATE TABLE usu_usuario (
   id int(10) PRIMARY KEY AUTO_INCREMENT,
@@ -108,6 +103,16 @@ CREATE TABLE usu_usuario (
   tipo varchar(255) NOT NULL,
   data_inicio date NOT NULL,
   data_fim date DEFAULT NULL
+);
+
+CREATE TABLE vei_veiculo (
+    id integer(10) PRIMARY KEY AUTO_INCREMENT, 
+    placa varchar(255),
+    id_tipo Integer (10),
+    FOREIGN KEY (id_tipo) REFERENCES tip_tipoveiculo(id),
+    capacidade integer(10),
+    usuario_id integer(10),
+    FOREIGN KEY (usuario_id) REFERENCES usu_usuario(id)
 );
 
 CREATE TABLE col_coleta (
@@ -129,4 +134,4 @@ CREATE TABLE col_coleta (
 );
 
 insert into tim_tipo_material (nome, descricao, especificacao) values ("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios"),
-("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios")
+("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios");
