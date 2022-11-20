@@ -13,7 +13,7 @@ public class ControllerTipoMaterial {
 
     DaoTipoMaterial daoTipoMat;
 
-    public TipoMaterial TipoMaterial(TipoMaterial tipoMat) throws SQLException, ClassNotFoundException {
+    public TipoMaterial inserir(TipoMaterial tipoMat) throws SQLException, ClassNotFoundException {
         daoTipoMat = new DaoTipoMaterial();
         return daoTipoMat.inserir(tipoMat);
     }

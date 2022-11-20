@@ -20,9 +20,10 @@ public class TestMaterial extends TestCase {
 	@DisplayName("Teste de inserção de Material")
 	public void testInserirMaterial() throws ClassNotFoundException, SQLException, ParseException {
 
-		Material newCol = new Material(3,"latinha de cerveja","descricao");
+		Material newCol = new Material(2,"latinha de cerveja","descricao");
 
 		ControllerMaterial contCol = new ControllerMaterial();
+		assertNotNull("nao encontrado",contCol.inserir(newCol).getId());
 		assertNotNull("nao encontrado",contCol.inserir(newCol).getId());
 		assertNotNull("nao encontrado",contCol.inserir(newCol).getId());
 		assertNotNull("nao encontrado",contCol.inserir(newCol).getId());
@@ -34,11 +35,10 @@ public class TestMaterial extends TestCase {
 	@Test
 	@DisplayName("Teste de busca de Material")
 	public void testBuscarMaterial() throws ClassNotFoundException, SQLException, ParseException {
-		Material newCol = new Material(3);
+		Material newCol = new Material(4);
 		ControllerMaterial contCol = new ControllerMaterial();
 
 		newCol=(contCol.buscar(newCol));
-        System.out.println(newCol);
 	}
 
 	 @Test
@@ -48,14 +48,13 @@ public class TestMaterial extends TestCase {
 	 	Material newCol = new Material("latinha de cerveja");
 	 	ControllerMaterial contCol = new ControllerMaterial();
 	 	assertNotNull(contCol.listar(newCol));
-        System.out.println(newCol);
 
 	 }
 
 	 @Test
 	 @DisplayName("Teste de excluir de Material")
 	 public void testExcluirMaterial() throws ClassNotFoundException, SQLException, ParseException {
-	 	Material newCol = new Material(3);
+	 	Material newCol = new Material(2);
 	 	ControllerMaterial contCol = new ControllerMaterial();
 
 	 	assertNotNull(contCol.excluir(newCol));
