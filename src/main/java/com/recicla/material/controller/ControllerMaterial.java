@@ -1,9 +1,9 @@
 package com.recicla.material.controller;
 
-import com.recicla.material.model.bean.Material;
-import com.recicla.material.model.bean.TipoMaterial;
+import com.recicla.material.model.bean.*;
 import com.recicla.material.model.dao.DaoMaterial;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +31,9 @@ public class ControllerMaterial {
 
     public Material buscar(Material mat) throws SQLException, ClassNotFoundException {
         daoMat = new DaoMaterial();
+        System.out.println(mat);
         mat = daoMat.buscar(mat);
+        System.out.println(mat);
         ControllerTipoMaterial contTm = new ControllerTipoMaterial();
         TipoMaterial tipoTm = new TipoMaterial(mat.getId_tipo_material());
         mat.setTipoMat(contTm.buscar(tipoTm));
@@ -40,6 +42,11 @@ public class ControllerMaterial {
 
     public List<Material> listar(Material mat) throws SQLException, ClassNotFoundException {
         daoMat = new DaoMaterial();
-        return daoMat.listar(mat);
+    	List<Material> listaMaterial = daoMat.listar(mat);
+    	List<Material> listaMaterialAux = new ArrayList<>();
+    	for(Material mataux : listaMaterial) {
+    		listaMaterialAux.add(buscar(mataux));
+    	}
+        return listaMaterialAux;
     }
 }
