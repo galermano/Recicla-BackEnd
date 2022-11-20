@@ -133,5 +133,23 @@ CREATE TABLE col_coleta (
     FOREIGN KEY (id_usuario_e) REFERENCES usu_usuario(id)
 );
 
-insert into tim_tipo_material (nome, descricao, especificacao) values ("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios"),
-("aluminio","metal","metais e aluminios"),("aluminio","metal","metais e aluminios");
+insert into tim_tipo_material (nome, descricao, especificacao) values ("aluminio","metal","metais e aluminios"),("papel","papel de folha","derivados de papel"),
+("vidro","vidros transparentes","vidros e vidraçarias"),("plastico","plastico de garrafa","plasticos e derivados de petroleo");
+
+INSERT INTO `reg_regiao`( `nome`, `descricao`) VALUES ("TATUAPE","ZONA LESTE"),("ARTUR ALVIM","ZONA LESTE"),("´PATRIARCA","ZONA LESTE"),("ITAQUERA","ZONA LESTE");
+
+INSERT INTO `log_logradouro`( `id_regiao`, `cep`) VALUES (2,"03657105"),(3,"03657100"),(2,"03657102"),(3,"03657103");
+
+INSERT INTO `mod_modulo`( `nome`, `descricao`) VALUES ("coleta","modulo de coleta para abrir coleta"), ("cadastroUsuario","modulo de abrir cadastro para usuarios"),
+ ("cadastroColetador","modulo de abrir cadastro para coletadores"),("cadastroVeiculo","modulo de abrir cadastro de veiculos");
+
+ INSERT INTO `ace_acesso`(`id_modulo`, `tipo`) VALUES (2,"usuario"),(1,"coletador"),(4,"coletador"),(3,"admin");
+
+INSERT INTO `sta_status`( `nome`, `descricao`) VALUES ('ativo','esta logado'),('inativo','esta deslogado'),('ativo','esta logado'),
+('inativo','esta deslogado'),('ativo','esta logado'),('inativo','esta deslogado');
+
+INSERT INTO `pes_pessoa`( `nome`, `identificacao`, `tipo`, `id_logradouro`) VALUES ("GABRIEL BONAMICO","593275647","admin","3"),("LAULO CELIO","593613647","usuario","1"),
+("KAWAN XIMENDES","723575647","coletador","3"),("FLABIO DIAS","593254727","admin","3"),("ALEX BITENCAS","59326354","admin","3");
+
+INSERT INTO `usu_usuario`(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha`, `tipo`, `data_inicio`, `data_fim`) VALUES (1,1,1,"alex","bitencas","admin","10/05/2022","25/12/2022"),
+(1,1,1,"gabriel","bona","admin","10/05/2022","25/12/2022"),(1,1,1,"fabio","dias","admin","10/05/2022","25/12/2022"),(1,1,1,"laulo","celio","admin","10/05/2022","25/12/2022");

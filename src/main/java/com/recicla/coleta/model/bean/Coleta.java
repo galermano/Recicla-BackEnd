@@ -38,22 +38,26 @@ public class Coleta {
 		this.idUsuarioE = idUsuarioE;
 	}
 
-	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
-			Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
-		this.id = id;
+	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
+			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
 		this.idStatus = idStatus;
 		this.compl = compl;
 		this.quantidade = quantidade;
 		this.dataSol = dataSol;
 		this.dataCon = dataCon;
 		this.idLogradouroR = idLogradouroR;
-		this.logradouroR = logradouroR;
 		this.idLogradouroE = idLogradouroE;
-		this.logradouroE = logradouroE;
 		this.idUsuarioR = idUsuarioR;
-		this.usuarioR = usuarioR;
 		this.idUsuarioE = idUsuarioE;
-		this.usuarioE = usuarioE;
+	}
+
+	@Override
+	public String toString() {
+		return "Coleta [id=" + id + ", idStatus=" + idStatus + ", compl=" + compl + ", quantidade=" + quantidade
+				+ ", dataSol=" + dataSol + ", dataCon=" + dataCon + ", idLogradouroR=" + idLogradouroR
+				+ ", logradouroR=" + logradouroR + ", idLogradouroE=" + idLogradouroE + ", logradouroE=" + logradouroE
+				+ ", idUsuarioR=" + idUsuarioR + ", usuarioR=" + usuarioR + ", idUsuarioE=" + idUsuarioE + ", usuarioE="
+				+ usuarioE + "]";
 	}
 
 	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,

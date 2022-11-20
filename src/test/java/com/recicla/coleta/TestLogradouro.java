@@ -52,7 +52,7 @@ public class TestLogradouro extends TestCase{
 	@Test
 	@DisplayName("Teste de excluir de Logradouro")
 	public void testExcluirLogradouro() throws ClassNotFoundException, SQLException, ParseException {
-		Logradouro newCol = new Logradouro(2);
+		Logradouro newCol = new Logradouro(5);
 		ControllerLogradouro contCol = new ControllerLogradouro();
 		
 		assertNotNull(contCol.excluir(newCol));

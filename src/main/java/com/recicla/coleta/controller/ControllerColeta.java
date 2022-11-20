@@ -18,7 +18,9 @@ public class ControllerColeta {
 
 	public Coleta buscar(Coleta col) throws ClassNotFoundException, SQLException {
 		DaoColeta daoCol = new DaoColeta();
+		System.out.println(col);
 		col = daoCol.buscar(col);
+		System.out.println(col);
 		ControllerLogradouro contLogradouro = new ControllerLogradouro();
 		ControllerUsuario contUsuario = new ControllerUsuario();
 		Logradouro logradouroE = new Logradouro(col.getIdLogradouroE());
