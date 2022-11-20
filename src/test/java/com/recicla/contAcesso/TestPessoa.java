@@ -60,7 +60,7 @@ public class TestPessoa extends TestCase {
 	@Test
 	@DisplayName("Teste de alterar de Pessoa")
 	public void testAlterarPessoa() throws ClassNotFoundException, SQLException, ParseException {
-		Pessoa newCol = new Pessoa("latinha de coca", 2, 2, 2);
+		Pessoa newCol = new Pessoa(1,"latinha de coca", 2, 2, 2);
 
 		ControllerPessoa contCol = new ControllerPessoa();
 		assertNotNull(contCol.alterar(newCol).getId());
