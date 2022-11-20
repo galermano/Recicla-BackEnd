@@ -1,6 +1,6 @@
 package com.recicla.material.controller;
 
-import com.recicla.material.model.been.HistoricoMaterial;
+import com.recicla.material.model.bean.HistoricoMaterial;
 import com.recicla.material.model.dao.DaoHistoricoMaterial;
 import java.sql.SQLException;
 import java.util.List;

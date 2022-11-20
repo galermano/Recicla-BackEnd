@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.recicla.transporte.model.been.Transporte;
+import com.recicla.transporte.model.bean.Transporte;
 import com.recicla.util.model.bean.ConexaoDB;
 
 public class DaoTransporte {

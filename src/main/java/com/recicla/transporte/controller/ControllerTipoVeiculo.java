@@ -3,7 +3,7 @@ package com.recicla.transporte.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.recicla.transporte.model.been.TipoVeiculo;
+import com.recicla.transporte.model.bean.TipoVeiculo;
 import com.recicla.transporte.model.dao.DaoTipoVeiculo;
 
 public class ControllerTipoVeiculo {

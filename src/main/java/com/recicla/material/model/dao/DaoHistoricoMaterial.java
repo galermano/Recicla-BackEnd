@@ -1,6 +1,6 @@
 package com.recicla.material.model.dao;
 
-import com.recicla.material.model.been.HistoricoMaterial;
+import com.recicla.material.model.bean.HistoricoMaterial;
 import com.recicla.util.model.bean.ConexaoDB;
 
 import java.sql.Connection;
