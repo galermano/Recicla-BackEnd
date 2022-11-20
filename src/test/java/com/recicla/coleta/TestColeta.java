@@ -39,7 +39,7 @@ public class TestColeta extends TestCase  {
 	@Test
 	@DisplayName("Teste de busca de Coleta")
 	public void testBuscarColeta() throws ClassNotFoundException, SQLException, ParseException {
-		Coleta newCol = new Coleta(2);
+		Coleta newCol = new Coleta(3);
 		ControllerColeta contCol = new ControllerColeta();
 
 		assertNotNull(contCol.buscar(newCol));

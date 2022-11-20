@@ -1,5 +1,11 @@
 package com.recicla;
 
+import com.recicla.coleta.*;
+import com.recicla.contAcesso.*;
+import com.recicla.material.*;
+import com.recicla.transporte.*;
+
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -25,7 +31,22 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( AppTest.class,
+        		TestColeta.class,
+        		TestLogradouro.class,
+        		TestRegiao.class,
+        		TestAcesso.class,
+        		TestModulo.class,
+        		TestPessoa.class,
+        		TestUsuario.class,
+        		TestHistoricoMaterial.class,
+        		TestHistoricoTipoMaterial.class,
+        		TestMaterial.class,
+        		TestTipoMaterial.class,
+        		TestTipoVeiculo.class,
+        		TestTransporte.class,
+        		TestVeiculo.class   		
+);
     }
 
     /**

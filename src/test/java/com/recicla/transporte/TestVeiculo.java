@@ -36,7 +36,7 @@ public class TestVeiculo extends TestCase {
 	@Test
 	@DisplayName("Teste de busca de Veiculo")
 	public void testBuscarVeiculo() throws ClassNotFoundException, SQLException, ParseException {
-		Veiculo newCol = new Veiculo(3);
+		Veiculo newCol = new Veiculo(4);
 		ControllerVeiculo contCol = new ControllerVeiculo();
 
 		newCol=(contCol.buscar(newCol));
