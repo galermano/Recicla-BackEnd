@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.recicla.transporte.model.bean.TipoVeiculo;
 import com.recicla.transporte.model.bean.Transporte;
 
 import com.recicla.util.model.bean.ConexaoDB;
@@ -20,7 +21,7 @@ public class DaoTransporte {
 	}
 
 	public Transporte inserir(Transporte tr) throws SQLException, ClassNotFoundException {
-		String sql = "insert into tr_transporte"
+		String sql = "insert into tra_transporte"
 				+ " (recipiente)"
 				+ " values (?)";
 
@@ -42,7 +43,7 @@ public class DaoTransporte {
 	}
 
 	public Transporte alterar(Transporte tr) throws SQLException {
-		String sql = "UPDATE tr_transporte SET recipiente = ? WHERE id = ?";
+		String sql = "UPDATE tra_transporte SET recipiente = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -56,7 +57,7 @@ public class DaoTransporte {
 	}
 
 	public Transporte buscar(Transporte tr) throws SQLException {
-		String sql = "select * from tr_transporte WHERE id = ?";
+		String sql = "select * from tra_transporte WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, tr.getId());
@@ -73,34 +74,28 @@ public class DaoTransporte {
 	}
 	
 	
-	//method list still in progress
-	public List<Transporte> listar(Transporte trEnt) throws SQLException {
-		// trs: array armazena a lista de registros
+    public List<Transporte> listar(Transporte trEnt) throws SQLException {
+        List<Transporte> tiposLista = new ArrayList<Transporte>();
 
-		List<Transporte> trs = new ArrayList<Transporte>();
+        String sql = "select * from tra_transporte where recipiente like ?";
+        PreparedStatement stmt = this.c.prepareStatement(sql);
+        stmt.setString(1, "%" + trEnt.getRecipiente() + "%");
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+        	Transporte trAux = new Transporte(
+                    rs.getInt(1),
+                    rs.getString(2)
+            );
+            tiposLista.add( trAux);
+        }
+        rs.close();
+        stmt.close();
+        return tiposLista;
+    }
 
-		String sql = "select * from tr_transporte";
-		PreparedStatement stmt = this.c.prepareStatement(sql);
-		// seta os valores
-//		stmt.setString(1, "%" + trEnt.getId() + "%");
-
-		ResultSet rs = stmt.executeQuery();
-
-		while (rs.next()) {
-			// criando o objeto Transporte
-			Transporte tr = new Transporte(rs.getInt(1), rs.getString(2));
-			// adiciona o tr à lista de trs
-			trs.add(tr);
-		}
-
-		rs.close();
-		stmt.close();
-		return trs;
-
-	}
 
 	public Transporte excluir(Transporte tr) throws SQLException {
-		String sql = "delete from tr_transporte WHERE id = ?";
+		String sql = "delete from tra_transporte WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores

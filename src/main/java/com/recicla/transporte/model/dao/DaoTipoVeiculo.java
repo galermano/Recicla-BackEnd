@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.recicla.transporte.model.bean.TipoVeiculo;
  
 import com.recicla.util.model.bean.ConexaoDB;
@@ -21,7 +20,7 @@ public class DaoTipoVeiculo {
 	}
 
 	public TipoVeiculo inserir(TipoVeiculo tr) throws SQLException, ClassNotFoundException {
-		String sql = "insert into tr_TipoVeiculo" + " (nome, descricao)" + " values (?,?)";
+		String sql = "insert into tip_tipoveiculo" + " (nome, descricao)" + " values (?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -42,7 +41,7 @@ public class DaoTipoVeiculo {
 	}
 
 	public TipoVeiculo alterar(TipoVeiculo tr) throws SQLException {
-		String sql = "UPDATE tr_TipoVeiculo SET nome = ?, descricao = ? WHERE id = ?";
+		String sql = "UPDATE tip_tipoveiculo SET nome = ?, descricao = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
@@ -57,7 +56,7 @@ public class DaoTipoVeiculo {
 	}
 
 	public TipoVeiculo buscar(TipoVeiculo tr) throws SQLException {
-		String sql = "select * from tr_TipoVeiculo WHERE id = ?";
+		String sql = "select * from tip_tipoveiculo WHERE id = ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
 		stmt.setInt(1, tr.getId());
@@ -72,35 +71,29 @@ public class DaoTipoVeiculo {
 		stmt.close();
 		return retorno;
 	}
+	
+    public List<TipoVeiculo> listar(TipoVeiculo trEnt) throws SQLException {
+        List<TipoVeiculo> tiposLista = new ArrayList<TipoVeiculo>();
 
-	// method list still in progress
-	public List<TipoVeiculo> listar(TipoVeiculo trEnt) throws SQLException {
-		// trs: array armazena a lista de registros
-
-		List<TipoVeiculo> trs = new ArrayList<TipoVeiculo>();
-
-		String sql = "select * from tr_TipoVeiculo";
-		PreparedStatement stmt = this.c.prepareStatement(sql);
-		// seta os valores
-//		stmt.setString(1, "%" + trEnt.getId() + "%");
-
-		ResultSet rs = stmt.executeQuery();
-
-		while (rs.next()) {
-			// criando o objeto TipoVeiculo
-			TipoVeiculo tr = new TipoVeiculo(rs.getInt(1), rs.getString(2), rs.getString(3));
-			// adiciona o tr à lista de trs
-			trs.add(tr);
-		}
-
-		rs.close();
-		stmt.close();
-		return trs;
-
-	}
+        String sql = "select * from tip_tipoveiculo where nome like ?";
+        PreparedStatement stmt = this.c.prepareStatement(sql);
+        stmt.setString(1, "%" + trEnt.getNome() + "%");
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+        	TipoVeiculo trAux = new TipoVeiculo(
+                    rs.getInt(1),
+                    rs.getString(2),
+                    rs.getString(3)
+            );
+            tiposLista.add( trAux);
+        }
+        rs.close();
+        stmt.close();
+        return tiposLista;
+    }
 
 	public TipoVeiculo excluir(TipoVeiculo tr) throws SQLException {
-		String sql = "delete from tr_TipoVeiculo WHERE id = ?";
+		String sql = "delete from tip_tipoveiculo WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores

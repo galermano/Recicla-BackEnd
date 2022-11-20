@@ -20,6 +20,11 @@ public class TipoVeiculo {
 		this.descricao = descricao;
 	}
 	
+	public TipoVeiculo(String nome) {
+		super();
+		this.nome = nome;
+	}
+	
 	public TipoVeiculo(int id) {
 		super();
 		this.id = id;
@@ -51,6 +56,11 @@ public class TipoVeiculo {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	@Override
+	public String toString() {
+		return "TipoVeiculo [id=" + id + ", nome=" + nome + ", descricao=" + descricao + "]";
 	}
 		
 }

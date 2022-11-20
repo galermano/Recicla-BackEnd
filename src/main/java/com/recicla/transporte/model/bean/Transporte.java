@@ -41,5 +41,10 @@ public class Transporte {
 	public void setRecipiente(String recipiente) {
 		this.recipiente = recipiente;
 	}
+
+	@Override
+	public String toString() {
+		return "Transporte [id=" + id + ", recipiente=" + recipiente + "]";
+	}
 	
 }
