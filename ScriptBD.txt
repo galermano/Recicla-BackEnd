@@ -58,9 +58,10 @@ create table hm_historicoMaterial(
     );
 
 CREATE TABLE his_historicoacesso (
-  id int(10) PRIMARY KEY AUTO_INCREMENT,
-  id_usu int(11) NOT NULL,
-  dataAcesso date NOT NULL
+  id_usu INTEGER(10) NOT NULL,
+  id_mod INTEGER(10) NOT NULL,
+  id_usu_mod INTEGER(10) NOT NULL,
+  tipo INTEGER(10) NOT NULL,
 );
 
 CREATE TABLE mod_modulo (
