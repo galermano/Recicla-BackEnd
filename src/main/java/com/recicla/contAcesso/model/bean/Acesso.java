@@ -23,6 +23,10 @@ public class Acesso {
 		this.id = id;
 	}
 
+	public Acesso(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public Integer getId() {
 		return id;
 	}
