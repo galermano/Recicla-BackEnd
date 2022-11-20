@@ -27,8 +27,8 @@ public class ControllerHistoricoAcesso {
 		return daoHist.excluir(hist);
 	}
 
-	public HistoricoAcesso alterar(HistoricoAcesso hist) throws ClassNotFoundException, SQLException {
-		DaoHistoricoAcesso daoHist = new DaoHistoricoAcesso();
-		return daoHist.alterar(hist);
-	}
+//	public HistoricoAcesso alterar(HistoricoAcesso hist) throws ClassNotFoundException, SQLException {
+//		DaoHistoricoAcesso daoHist = new DaoHistoricoAcesso();
+//		return daoHist.alterar(hist);
+//	}
 }

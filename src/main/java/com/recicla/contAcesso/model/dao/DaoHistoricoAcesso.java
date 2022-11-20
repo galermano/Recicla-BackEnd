@@ -21,7 +21,7 @@ public class DaoHistoricoAcesso {
 
 	public HistoricoAcesso inserir(HistoricoAcesso hist) throws SQLException, ClassNotFoundException {
 		String sql = "insert into his_historicoacesso"
-				+ " (id_usu,id_mod,id_usu_mode,tipo)"
+				+ " (id_usu,id_mod,id_usu_mod,tipo)"
 				+ " values (?,?,?,?)";
 
 		// prepared statement para inserção

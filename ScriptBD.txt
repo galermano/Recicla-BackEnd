@@ -61,7 +61,7 @@ CREATE TABLE his_historicoacesso (
   id_usu INTEGER(10) NOT NULL,
   id_mod INTEGER(10) NOT NULL,
   id_usu_mod INTEGER(10) NOT NULL,
-  tipo INTEGER(10) NOT NULL,
+  tipo INTEGER(10) NOT NULL
 );
 
 CREATE TABLE mod_modulo (

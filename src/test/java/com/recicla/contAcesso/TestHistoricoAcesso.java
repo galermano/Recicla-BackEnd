@@ -57,13 +57,13 @@ public class TestHistoricoAcesso extends TestCase {
         assertNotNull(contCol.excluir(newCol));
     }
 
-    @Test
-    @DisplayName("Teste de alterar de HistoricoAcesso")
-    public void testAlterarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
-        HistoricoAcesso newCol = new HistoricoAcesso(1, 2, 2, 2);
-
-        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
-        assertNotNull(contCol.alterar(newCol).getId_usu());
-
-    }
+//    @Test
+//    @DisplayName("Teste de alterar de HistoricoAcesso")
+//    public void testAlterarHistoricoAcesso() throws ClassNotFoundException, SQLException, ParseException {
+//        HistoricoAcesso newCol = new HistoricoAcesso(1, 2, 2, 2);
+//
+//        ControllerHistoricoAcesso contCol = new ControllerHistoricoAcesso();
+//        assertNotNull(contCol.alterar(newCol).getId_usu());
+//
+//    }
 }
