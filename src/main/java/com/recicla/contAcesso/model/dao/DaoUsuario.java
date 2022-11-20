@@ -21,7 +21,7 @@ public class DaoUsuario {
 
 	public Usuario inserir(Usuario usu) throws SQLException, ClassNotFoundException {
 		String sql = "insert into usu_usuario"
-				+ " (id_pessoa, id_status, id_acesso, login, senha, tipo, data_inicio, data_fim)"
+				+ " (id_pessoa, id_status, id_acesso, login, senha, data_inicio, data_fim)"
 				+ " values (?,?,?,?,?,?,?,?)";
 
 		// prepared statement para inserção
@@ -33,9 +33,8 @@ public class DaoUsuario {
 		stmt.setInt(3, usu.getId_acesso());
 		stmt.setString(4, usu.getLogin());
 		stmt.setString(5, usu.getSenha());
-		stmt.setString(6, usu.getTipo());
-		stmt.setDate(7, (Date) usu.getData_inicio());
-		stmt.setDate(8, (Date) usu.getData_fim());
+		stmt.setDate(6, (Date) usu.getData_inicio());
+		stmt.setDate(7, (Date) usu.getData_fim());
 
 		// executa
 		stmt.executeUpdate();
@@ -58,10 +57,9 @@ public class DaoUsuario {
 		stmt.setInt(3, usu.getId_acesso());
 		stmt.setString(4, usu.getLogin());
 		stmt.setString(5, usu.getSenha());
-		stmt.setString(6, usu.getTipo());
-		stmt.setDate(7, (Date) usu.getData_inicio());
-		stmt.setDate(8, (Date) usu.getData_fim());
-		stmt.setInt(9, usu.getId());
+		stmt.setDate(6, (Date) usu.getData_inicio());
+		stmt.setDate(7, (Date) usu.getData_fim());
+		stmt.setInt(8, usu.getId());
 
 		// executa
 		stmt.execute();
@@ -79,7 +77,7 @@ public class DaoUsuario {
 		Usuario retorno = null;
 		while (rs.next()) {
 			// criando o objeto Usuario
-			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8), rs.getDate(9));
+			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
 
 			// adiciona o usu à lista de usus
 		}
@@ -101,7 +99,7 @@ public class DaoUsuario {
 
 		while (rs.next()) {
 			// criando o objeto Usuario
-			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(8), rs.getDate(9));
+			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
 
 			// adiciona o usu à lista de usus
 			usus.add(usu);
@@ -147,9 +145,8 @@ public class DaoUsuario {
 					rs.getInt(4),
 					rs.getString(5), 
 					rs.getString(6),
-					rs.getString(7),
-					rs.getDate(8), 
-					rs.getDate(9)
+					rs.getDate(7), 
+					rs.getDate(8)
 					);
 			// adiciona o usu à lista de usus
 		}
