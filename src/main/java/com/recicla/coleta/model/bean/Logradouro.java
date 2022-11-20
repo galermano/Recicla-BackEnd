@@ -9,11 +9,11 @@ public class Logradouro {
 
 	
 	
-	protected Regiao getRegiao() {
+	public Regiao getRegiao() {
 		return regiao;
 	}
 
-	protected void setRegiao(Regiao regiao) {
+	public void setRegiao(Regiao regiao) {
 		this.regiao = regiao;
 	}
 
