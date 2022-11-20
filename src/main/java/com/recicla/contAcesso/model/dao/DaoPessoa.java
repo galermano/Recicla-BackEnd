@@ -70,7 +70,11 @@ public class DaoPessoa {
 		Pessoa retorno = null;
 		while (rs.next()) {
 			// criando o objeto Pessoa
-			retorno = new Pessoa(rs.getInt(1),rs.getString(2), rs.getInt(2), rs.getInt(3), rs.getInt(4));
+			retorno = new Pessoa(rs.getInt(1),
+					rs.getString(2),
+					rs.getInt(3),
+					rs.getInt(4),
+					rs.getInt(5));
 			// adiciona o pes à lista de pess
 		}
 		stmt.close();
