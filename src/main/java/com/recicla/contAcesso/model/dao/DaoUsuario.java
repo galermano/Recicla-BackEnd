@@ -22,7 +22,7 @@ public class DaoUsuario {
 	public Usuario inserir(Usuario usu) throws SQLException, ClassNotFoundException {
 		String sql = "insert into usu_usuario"
 				+ " (id_pessoa, id_status, id_acesso, login, senha, data_inicio, data_fim)"
-				+ " values (?,?,?,?,?,?,?,?)";
+				+ " values (?,?,?,?,?,?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -77,7 +77,7 @@ public class DaoUsuario {
 		Usuario retorno = null;
 		while (rs.next()) {
 			// criando o objeto Usuario
-			retorno = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+			retorno = new Usuario(rs.getInt(1),rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
 
 			// adiciona o usu à lista de usus
 		}
