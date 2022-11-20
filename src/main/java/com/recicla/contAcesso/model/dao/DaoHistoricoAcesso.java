@@ -21,16 +21,26 @@ public class DaoHistoricoAcesso {
 
 	public HistoricoAcesso inserir(HistoricoAcesso hist) throws SQLException, ClassNotFoundException {
 		String sql = "insert into historicoacesso"
-				+ " (id_usu,dataAcesso)"
-				+ " values (?,?)";
+				+ " (id_usuario, id_pessoa, id_status, id_acesso, id_logradouro, identificacao, tipo_pessoa, nome, login, senha, data_inicio, data_fim, tipo_usuario)"
+				+ " values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		// seta os valores
-		stmt.setInt(1, hist.getId_usu());
-		stmt.setDate(2, (Date) hist.getDataAcesso());
-		
+		stmt.setInt(1, hist.getId_usuario());
+		stmt.setInt(2, hist.getId_pessoa());
+		stmt.setInt(3, hist.getId_status());
+		stmt.setInt(4, hist.getId_acesso());
+		stmt.setInt(5, hist.getId_logradouro());
+		stmt.setString(6, hist.getIdentificacao());
+		stmt.setString(7, hist.getTipo_pessoa());
+		stmt.setString(8, hist.getNome());
+		stmt.setString(9, hist.getLogin());
+		stmt.setString(10, hist.getSenha());
+		stmt.setDate(11, (Date) hist.getData_inicio());
+		stmt.setDate(12, (Date) hist.getData_fim());
+		stmt.setString(13, hist.getTipo_usuario());
 		// executa
 		stmt.executeUpdate();
 		ResultSet rs = stmt.getGeneratedKeys();
@@ -43,13 +53,24 @@ public class DaoHistoricoAcesso {
 	}
 
 	public HistoricoAcesso alterar(HistoricoAcesso hist) throws SQLException {
-		String sql = "UPDATE historicoacesso SET id_usu = ?, dataAcesso = ? WHERE id = ?";
+		String sql = "UPDATE historicoacesso SET id_usuario = ?, id_pessoa = ?, id_status = ?, id_acesso = ?, id_logradouro = ?, identificacao = ?, tipo_pessoa = ?, nome = ?, login = ?, senha = ?, data_inicio = ?, data_fim = ?, tipo_usuario = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
-		stmt.setInt(1, hist.getId_usu());
-		stmt.setDate(2, (Date) hist.getDataAcesso());
-		stmt.setInt(5, hist.getId());
+		stmt.setInt(1, hist.getId_usuario());
+		stmt.setInt(2, hist.getId_pessoa());
+		stmt.setInt(3, hist.getId_status());
+		stmt.setInt(4, hist.getId_acesso());
+		stmt.setInt(5, hist.getId_logradouro());
+		stmt.setString(6, hist.getIdentificacao());
+		stmt.setString(7, hist.getTipo_pessoa());
+		stmt.setString(8, hist.getNome());
+		stmt.setString(9, hist.getLogin());
+		stmt.setString(10, hist.getSenha());
+		stmt.setDate(11, (Date) hist.getData_inicio());
+		stmt.setDate(12, (Date) hist.getData_fim());
+		stmt.setString(13, hist.getTipo_usuario());
+		stmt.setInt(14, hist.getId());
 		
 		// executa
 		stmt.execute();
@@ -67,7 +88,7 @@ public class DaoHistoricoAcesso {
 		HistoricoAcesso retorno = null;
 		while (rs.next()) {
 			// criando o objeto HistoricoAcesso
-			retorno = new HistoricoAcesso(rs.getInt(1),rs.getInt(2), rs.getDate(3));
+			retorno = new HistoricoAcesso(rs.getInt(1),rs.getInt(2), rs.getInt(3),rs.getInt(4),rs.getInt(5), rs.getString(6),rs.getString(7),rs.getString(8), rs.getString(9), rs.getString(10),rs.getDate(11),rs.getDate(12),rs.getString(13),rs.getInt(14));
 			// adiciona o hist à lista de hists
 		}
 		stmt.close();
@@ -82,13 +103,13 @@ public class DaoHistoricoAcesso {
 		String sql = "select * from historicoacesso where dataAcesso like ?";
 		PreparedStatement stmt = this.c.prepareStatement(sql);
 		// seta os valores
-		stmt.setString(1, "%" + histEnt.getDataAcesso() + "%");
+		stmt.setString(1, "%" + histEnt.getData_inicio() + "%");
 
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
 			// criando o objeto HistoricoAcesso
-			HistoricoAcesso hist = new HistoricoAcesso(rs.getInt(1), rs.getInt(2), rs.getDate(3));
+			HistoricoAcesso hist = new HistoricoAcesso(rs.getInt(1),rs.getInt(2),rs.getInt(3), rs.getInt(4),rs.getInt(5),rs.getInt(6), rs.getString(7),rs.getString(8),rs.getString(9), rs.getString(10), rs.getString(11),rs.getDate(12),rs.getDate(13),rs.getString(14));
 			// adiciona o hist à lista de hists
 			hists.add(hist);
 		}

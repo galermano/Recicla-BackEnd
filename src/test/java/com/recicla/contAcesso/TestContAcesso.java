@@ -22,7 +22,7 @@ public class TestContAcesso extends TestCase {
 		Date dataSol = new Date();
 		Date dataCon = formatter.parse("30-11-2022");
 		
-		Usuario newUsu = new Usuario(2, 2, "Otavio", "1234", "Coletor", new java.sql.Date(dataSol.getTime()), new java.sql.Date(dataCon.getTime()));
+		Usuario newUsu = new Usuario(2, 2, 1, "Otavio", "1234", "Coletor", new java.sql.Date(dataSol.getTime()), new java.sql.Date(dataCon.getTime()));
 		
 		ControllerUsuario contUsu = new ControllerUsuario();
 		assertNotNull(contUsu.inserir(newUsu).getId());
@@ -30,7 +30,7 @@ public class TestContAcesso extends TestCase {
 	
 	@Test
 	public void testInserirAcesso() throws ClassNotFoundException, SQLException, ParseException {
-		Acesso newAcess = new Acesso(1, 1, "Adm");
+		Acesso newAcess = new Acesso(1, 1, "Total");
 		
 		ControllerAcesso contAcess = new ControllerAcesso();
 		
@@ -39,7 +39,7 @@ public class TestContAcesso extends TestCase {
 	
 	@Test
 	public void testValidarAcesso() throws ClassNotFoundException, SQLException, ParseException {
-		Acesso newAcess = new Acesso(4,1,1,"Adm");
+		Acesso newAcess = new Acesso(1,1,"Total");
 		
 		ControllerAcesso contAcess = new ControllerAcesso();
 		
@@ -48,7 +48,7 @@ public class TestContAcesso extends TestCase {
 	
 	@Test
 	public void testValidarLogin() throws ClassNotFoundException, SQLException, ParseException {
-		Usuario usu = new Usuario("Kawan", "1234");
+		Usuario usu = new Usuario("Otavio", "1234");
 		
 		ControllerUsuario contUsu = new ControllerUsuario();
 		
