@@ -90,7 +90,7 @@ CREATE TABLE ace_acesso (
 CREATE TABLE pes_pessoa (
   id int(10) PRIMARY KEY AUTO_INCREMENT,
   nome varchar(255) NOT NULL,
-  identificacao int(10) NOT NULL,
+  identificacao varchar(255) NOT NULL,
   tipo int(10) NOT NULL,
   id_logradouro int(10) NOT NULL,
   FOREIGN KEY (id_logradouro) REFERENCES log_logradouro(id)
