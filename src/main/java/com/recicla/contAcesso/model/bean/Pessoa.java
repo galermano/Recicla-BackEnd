@@ -6,12 +6,12 @@ public class Pessoa {
 	
 	private Integer id;
 	private String nome;
-	private Integer identificacao;
+	private String identificacao;
 	private Integer tipo;
 	private Integer id_logradouro;
 	private Logradouro logradouro;
 
-	public Pessoa(Integer id, String nome, Integer identificacao, Integer tipo, Integer id_logradouro) {
+	public Pessoa(Integer id, String nome, String identificacao, Integer tipo, Integer id_logradouro) {
 		this.id = id;
 		this.nome = nome;
 		this.identificacao = identificacao;
@@ -19,7 +19,7 @@ public class Pessoa {
 		this.id_logradouro = id_logradouro;
 	}
 
-	public Pessoa(String nome, Integer identificacao, Integer tipo, Integer id_logradouro) {
+	public Pessoa(String nome, String identificacao, Integer tipo, Integer id_logradouro) {
 		super();
 		this.nome = nome;
 		this.identificacao = identificacao;
@@ -53,11 +53,11 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public Integer getIdentificacao() {
+	public String getIdentificacao() {
 		return identificacao;
 	}
 
-	public void setIdentificacao(Integer identificacao) {
+	public void setIdentificacao(String identificacao) {
 		this.identificacao = identificacao;
 	}
 

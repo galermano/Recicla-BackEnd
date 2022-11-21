@@ -28,7 +28,7 @@ public class DaoPessoa {
 
 		// seta os valores
 		stmt.setString(1, pes.getNome());
-		stmt.setInt(2, pes.getIdentificacao());
+		stmt.setString(2, pes.getIdentificacao());
 		stmt.setInt(3, pes.getTipo());
 		stmt.setInt(4, pes.getId_logradouro());
 
@@ -49,7 +49,7 @@ public class DaoPessoa {
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, pes.getNome());
-		stmt.setInt(2, pes.getIdentificacao());
+		stmt.setString(2, pes.getIdentificacao());
 		stmt.setInt(3, pes.getTipo());
 		stmt.setInt(4, pes.getId_logradouro());
 		stmt.setInt(5, pes.getId());
@@ -72,7 +72,7 @@ public class DaoPessoa {
 			// criando o objeto Pessoa
 			retorno = new Pessoa(rs.getInt(1),
 					rs.getString(2),
-					rs.getInt(3),
+					rs.getString(3),
 					rs.getInt(4),
 					rs.getInt(5));
 			// adiciona o pes à lista de pess
@@ -95,7 +95,7 @@ public class DaoPessoa {
 
 		while (rs.next()) {
 			// criando o objeto Pessoa
-			Pessoa pes = new Pessoa(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5));
+			Pessoa pes = new Pessoa(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
 			// adiciona o pes à lista de pess
 			pess.add(pes);
 		}

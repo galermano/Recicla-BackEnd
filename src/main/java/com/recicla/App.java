@@ -24,10 +24,12 @@ public class App
         System.out.println(contAcesso.validar(newAcess));
         
         
-        Usuario usu = new Usuario("Otavio", "1234");
+        Usuario usu = new Usuario("teste@teste", "1234");
         
         ControllerUsuario contUsu = new ControllerUsuario();
         
         System.out.println(contUsu.validar(usu));
+        
+
     }
 }
