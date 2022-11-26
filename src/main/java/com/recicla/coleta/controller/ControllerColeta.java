@@ -45,6 +45,14 @@ public class ControllerColeta {
 		return listaColAux;
 	}
 
+	public List<Coleta> listarTodos() throws ClassNotFoundException, SQLException {
+		DaoColeta daoCol = new DaoColeta();
+		List<Coleta> listaCol = daoCol.listarTodos();
+		List<Coleta> listaColAux = new ArrayList<Coleta>();
+		listaColAux.addAll(listaCol);
+		return listaColAux;
+	}
+
 	public Coleta excluir(Coleta col) throws ClassNotFoundException, SQLException {
 		DaoColeta daoCol = new DaoColeta();
 		return daoCol.excluir(col);

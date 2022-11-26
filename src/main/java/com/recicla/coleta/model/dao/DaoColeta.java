@@ -114,6 +114,30 @@ public class DaoColeta {
 
 	}
 
+	public List<Coleta> listarTodos() throws SQLException {
+		// cols: array armazena a lista de registros
+		
+		List<Coleta> cols = new ArrayList<Coleta>();
+		
+		String sql = "select * from col_coleta";
+		PreparedStatement stmt = this.c.prepareStatement(sql);
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		while (rs.next()) {
+			// criando o objeto Coleta
+			Coleta col = new Coleta(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getDate(5),
+					rs.getDate(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10));
+			// adiciona o col à lista de cols
+			cols.add(col);
+		}
+		
+		rs.close();
+		stmt.close();
+		return cols;
+		
+	}
+
 	public Coleta excluir(Coleta col) throws SQLException {
 		String sql = "delete from col_coleta WHERE id = ?";
 		// prepared statement para inserção
