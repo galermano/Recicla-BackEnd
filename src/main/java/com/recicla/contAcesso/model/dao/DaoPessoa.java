@@ -20,8 +20,8 @@ public class DaoPessoa {
 
 	public Pessoa inserir(Pessoa pes) throws SQLException, ClassNotFoundException {
 		String sql = "insert into pes_pessoa"
-				+ " (nome, identificacao, tipo, id_logradouro)"
-				+ " values (?,?,?,?)";
+				+ " (nome, identificacao, id_logradouro)"
+				+ " values (?,?,?)";
 
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -29,8 +29,7 @@ public class DaoPessoa {
 		// seta os valores
 		stmt.setString(1, pes.getNome());
 		stmt.setString(2, pes.getIdentificacao());
-		stmt.setInt(3, pes.getTipo());
-		stmt.setInt(4, pes.getId_logradouro());
+		stmt.setInt(3, pes.getId_logradouro());
 
 		// executa
 		stmt.executeUpdate();
@@ -44,15 +43,14 @@ public class DaoPessoa {
 	}
 
 	public Pessoa alterar(Pessoa pes) throws SQLException {
-		String sql = "UPDATE pes_pessoa SET nome = ?, identificacao = ?, tipo = ?, id_logradouro = ? WHERE id = ?";
+		String sql = "UPDATE pes_pessoa SET nome = ?, identificacao = ?,  id_logradouro = ? WHERE id = ?";
 		// prepared statement para inserção
 		PreparedStatement stmt = c.prepareStatement(sql);
 		// seta os valores
 		stmt.setString(1, pes.getNome());
 		stmt.setString(2, pes.getIdentificacao());
-		stmt.setInt(3, pes.getTipo());
-		stmt.setInt(4, pes.getId_logradouro());
-		stmt.setInt(5, pes.getId());
+		stmt.setInt(3, pes.getId_logradouro());
+		stmt.setInt(4, pes.getId());
 		
 		// executa
 		stmt.execute();
@@ -73,8 +71,7 @@ public class DaoPessoa {
 			retorno = new Pessoa(rs.getInt(1),
 					rs.getString(2),
 					rs.getString(3),
-					rs.getInt(4),
-					rs.getInt(5));
+					rs.getInt(4));
 			// adiciona o pes à lista de pess
 		}
 		stmt.close();
@@ -95,7 +92,7 @@ public class DaoPessoa {
 
 		while (rs.next()) {
 			// criando o objeto Pessoa
-			Pessoa pes = new Pessoa(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+			Pessoa pes = new Pessoa(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4));
 			// adiciona o pes à lista de pess
 			pess.add(pes);
 		}

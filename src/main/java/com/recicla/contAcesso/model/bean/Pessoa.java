@@ -7,23 +7,20 @@ public class Pessoa {
 	private Integer id;
 	private String nome;
 	private String identificacao;
-	private Integer tipo;
 	private Integer id_logradouro;
 	private Logradouro logradouro;
 
-	public Pessoa(Integer id, String nome, String identificacao, Integer tipo, Integer id_logradouro) {
+	public Pessoa(Integer id, String nome, String identificacao, Integer id_logradouro) {
 		this.id = id;
 		this.nome = nome;
 		this.identificacao = identificacao;
-		this.tipo = tipo;
 		this.id_logradouro = id_logradouro;
 	}
 
-	public Pessoa(String nome, String identificacao, Integer tipo, Integer id_logradouro) {
+	public Pessoa(String nome, String identificacao, Integer id_logradouro) {
 		super();
 		this.nome = nome;
 		this.identificacao = identificacao;
-		this.tipo = tipo;
 		this.id_logradouro = id_logradouro;
 	}
 
@@ -61,14 +58,6 @@ public class Pessoa {
 		this.identificacao = identificacao;
 	}
 
-	public Integer getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
-
 	public Integer getId_logradouro() {
 		return id_logradouro;
 	}
@@ -88,7 +77,7 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", identificacao=" + identificacao + ", tipo=" + tipo
+		return "Pessoa [id=" + id + ", nome=" + nome + ", identificacao=" + identificacao + ", "
 				+ ", id_logradouro=" + id_logradouro + "]";
 	}
 	
