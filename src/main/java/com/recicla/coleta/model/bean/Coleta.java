@@ -24,6 +24,21 @@ public class Coleta {
 	private int idUsuarioE;
 	private Usuario usuarioE;
 
+	
+	
+	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, int idLogradouroR, int idLogradouroE,
+			int idUsuarioR, int idUsuarioE) {
+		super();
+		this.idStatus = idStatus;
+		this.compl = compl;
+		this.quantidade = quantidade;
+		this.dataSol = dataSol;
+		this.idLogradouroR = idLogradouroR;
+		this.idLogradouroE = idLogradouroE;
+		this.idUsuarioR = idUsuarioR;
+		this.idUsuarioE = idUsuarioE;
+	}
+
 	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
 			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
 		this.id = id;

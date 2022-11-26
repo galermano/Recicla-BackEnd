@@ -47,6 +47,14 @@ public class ControllerUsuario {
 		return listaUsuarioAux;
 	}
 
+	public List<Usuario> listarTodos() throws ClassNotFoundException, SQLException {
+		DaoUsuario daoUsu = new DaoUsuario();
+		List<Usuario> listaUsuario = daoUsu.listarTodos();
+		List<Usuario> listaUsuarioAux = new ArrayList<Usuario>();
+		listaUsuarioAux.addAll(listaUsuario);
+		return listaUsuarioAux;
+	}
+
 	public Usuario excluir(Usuario usu) throws ClassNotFoundException, SQLException {
 		DaoUsuario daoUsu = new DaoUsuario();
 		return daoUsu.excluir(usu);

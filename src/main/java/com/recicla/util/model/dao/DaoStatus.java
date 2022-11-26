@@ -105,6 +105,34 @@ public class DaoStatus {
         return stas;
         
     }
+
+   public List<Status> listarTodos() throws SQLException{
+	   // stas: array armazena a lista de registros
+	   
+	   List<Status> stas = new ArrayList<Status>();
+	   
+	   String sql = "select * from sta_status";
+	   PreparedStatement stmt = this.c.prepareStatement(sql);
+
+	   
+	   ResultSet rs = stmt.executeQuery();
+	   
+	   while (rs.next()) {      
+		   // criando o objeto Status
+		   Status sta = new Status(
+				   rs.getInt(1),
+				   rs.getString(2),
+				   rs.getString(3)
+				   );
+		   // adiciona o sta à lista de stas
+		   stas.add(sta);
+	   }
+	   
+	   rs.close();
+	   stmt.close();
+	   return stas;
+	   
+   }
    
     public Status excluir(Status sta) throws SQLException{
         String sql = "delete from sta_status WHERE id = ?";

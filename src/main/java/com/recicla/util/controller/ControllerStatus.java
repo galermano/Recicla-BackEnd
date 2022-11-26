@@ -23,6 +23,11 @@ public class ControllerStatus {
         DaoStatus daoSta = new DaoStatus();
         return daoSta.listar(sta);
     }
+
+    public List<Status> listarTodos() throws ClassNotFoundException, SQLException{
+    	DaoStatus daoSta = new DaoStatus();
+    	return daoSta.listarTodos();
+    }
     
     public Status excluir(Status sta) throws ClassNotFoundException, SQLException{
         DaoStatus daoSta = new DaoStatus();

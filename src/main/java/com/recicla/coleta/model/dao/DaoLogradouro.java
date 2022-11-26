@@ -103,6 +103,31 @@ public class DaoLogradouro {
 		return logs;
 
 	}
+	public List<Logradouro> listarTodos() throws SQLException {
+		// logs: array armazena a lilog de logistros
+
+		List<Logradouro> logs = new ArrayList<Logradouro>();
+
+		String sql = "select * from log_logradouro";
+		PreparedStatement stmt = this.c.prepareStatement(sql);
+
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			// criando o objeto Logradouro
+			Logradouro log = new Logradouro(
+					rs.getInt(1), 
+					rs.getInt(2), 
+					rs.getString(3));
+			// adiciona o log à lilog de logs
+			logs.add(log);
+		}
+
+		rs.close();
+		stmt.close();
+		return logs;
+
+	}
 
 	public Logradouro excluir(Logradouro log) throws SQLException {
 		String sql = "delete from log_logradouro WHERE id = ?";

@@ -111,6 +111,30 @@ public class DaoUsuario {
 
 	}
 
+	public List<Usuario> listarTodos() throws SQLException {
+		// usus: array armazena a lista de registros
+
+		List<Usuario> usus = new ArrayList<Usuario>();
+
+		String sql = "select * from usu_usuario";
+		PreparedStatement stmt = this.c.prepareStatement(sql);
+
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			// criando o objeto Usuario
+			Usuario usu = new Usuario(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+
+			// adiciona o usu à lista de usus
+			usus.add(usu);
+		}
+
+		rs.close();
+		stmt.close();
+		return usus;
+
+	}
+	
 	public Usuario excluir(Usuario usu) throws SQLException {
 		String sql = "delete from usu_Usuario WHERE id = ?";
 		// prepared statement para inserção

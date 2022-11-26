@@ -35,6 +35,15 @@ public class ControllerLogradouro {
 		return listaLogAux;
 
 	}
+	
+	public List<Logradouro> listarTodos() throws ClassNotFoundException, SQLException {
+		DaoLogradouro daoLog = new DaoLogradouro();
+		List<Logradouro> listaLog = daoLog.listarTodos();
+		ArrayList<Logradouro> listaLogArr = new ArrayList<Logradouro>();
+		listaLogArr.addAll(listaLog);
+		return listaLogArr;
+
+	}
 
 	public Logradouro excluir(Logradouro log) throws ClassNotFoundException, SQLException {
 		DaoLogradouro daoLog = new DaoLogradouro();
