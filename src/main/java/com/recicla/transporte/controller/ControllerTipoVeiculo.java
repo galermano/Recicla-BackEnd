@@ -21,6 +21,11 @@ public class ControllerTipoVeiculo {
 		DaoTipoVeiculo daoTR = new DaoTipoVeiculo();
 		return daoTR.listar(TR);
 	}
+	
+	public List<TipoVeiculo> listarTodos() throws ClassNotFoundException, SQLException {
+		DaoTipoVeiculo daoTR = new DaoTipoVeiculo();
+		return daoTR.listarTodos();
+	}
 
 	public TipoVeiculo excluir(TipoVeiculo TR) throws ClassNotFoundException, SQLException {
 		DaoTipoVeiculo daoTR = new DaoTipoVeiculo();

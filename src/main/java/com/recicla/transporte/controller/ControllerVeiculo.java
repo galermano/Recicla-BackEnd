@@ -19,18 +19,8 @@ public class ControllerVeiculo {
 	}
 
 	public Veiculo buscar(Veiculo TR) throws ClassNotFoundException, SQLException {
-		daoVei = new DaoVeiculo();
-        System.out.println(TR);
-        TR = daoVei.buscar(TR);
-        System.out.println(TR);
-        ControllerTipoVeiculo contTV = new ControllerTipoVeiculo();
-        TipoVeiculo TV = new TipoVeiculo(TR.getIdtipo());
-        TR.setTipo(contTV.buscar(TV));
-        
-        ControllerUsuario contUsu = new ControllerUsuario();
-        Usuario usu = new Usuario(TR.getIdusuario());
-        TR.setUsuario(contUsu.buscar(usu));
-        return TR;
+		DaoVeiculo daoVei = new DaoVeiculo();
+        return daoVei.buscar(TR);
 	}
 
 	public List<Veiculo> listar(Veiculo TR) throws ClassNotFoundException, SQLException {
@@ -41,6 +31,14 @@ public class ControllerVeiculo {
     		listaVeiculoAux.add(buscar(veiaux));
     	}
         return listaVeiculoAux;
+	}
+
+	public List<Veiculo> listarTodos() throws ClassNotFoundException, SQLException {
+		daoVei = new DaoVeiculo();
+		List<Veiculo> listaVeiculo = daoVei.listarTodos();
+		List<Veiculo> listaVeiculoAux = new ArrayList<Veiculo>();
+		listaVeiculoAux.addAll(listaVeiculo);
+		return listaVeiculoAux;
 	}
 
 	public Veiculo excluir(Veiculo TR) throws ClassNotFoundException, SQLException {

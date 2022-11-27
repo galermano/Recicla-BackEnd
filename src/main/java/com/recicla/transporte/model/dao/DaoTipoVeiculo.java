@@ -92,6 +92,26 @@ public class DaoTipoVeiculo {
         return tiposLista;
     }
 
+    public List<TipoVeiculo> listarTodos() throws SQLException {
+    	List<TipoVeiculo> tiposLista = new ArrayList<TipoVeiculo>();
+    	
+    	String sql = "select * from tip_tipoveiculo";
+    	PreparedStatement stmt = this.c.prepareStatement(sql);
+
+    	ResultSet rs = stmt.executeQuery();
+    	while (rs.next()) {
+    		TipoVeiculo trAux = new TipoVeiculo(
+    				rs.getInt(1),
+    				rs.getString(2),
+    				rs.getString(3)
+    				);
+    		tiposLista.add( trAux);
+    	}
+    	rs.close();
+    	stmt.close();
+    	return tiposLista;
+    }
+
 	public TipoVeiculo excluir(TipoVeiculo tr) throws SQLException {
 		String sql = "delete from tip_tipoveiculo WHERE id = ?";
 		// prepared statement para inserção
