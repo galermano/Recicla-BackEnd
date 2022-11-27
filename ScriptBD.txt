@@ -169,3 +169,5 @@ INSERT INTO `usu_usuario`(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha
 
 INSERT INTO `tip_tipoveiculo`( `nome`, `descricao`)values ("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),
 ("caminhao","veiculo grande"),("caminhao","veiculo grande")
+
+INSERT INTO `mod_modulo` (`nome`, descricao) values ("administrador", "permissao para todos os modulos"), ("usuario", "permissao para certos modulos")
