@@ -13,7 +13,7 @@ import com.recicla.contAcesso.model.bean.Acesso;
 
 import junit.framework.TestCase;
 
-public class TestAcesso {
+public class TestAcesso extends TestCase {
     @Test
     @DisplayName("Teste de inserção de Acesso")
     public void testInserirAcesso() throws ClassNotFoundException, SQLException, ParseException {
