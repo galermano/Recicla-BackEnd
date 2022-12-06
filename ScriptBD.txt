@@ -1,56 +1,56 @@
 create DATABASE recicla;
 
-CREATE TABLE reg_regiao (
+CREATE TABLE recicla.reg_regiao (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     nome varchar(255),
     descricao varchar(255)
 );
 
-CREATE TABLE log_logradouro (
+CREATE TABLE recicla.log_logradouro (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     id_regiao integer(10),
-    FOREIGN KEY (id_regiao) REFERENCES reg_regiao(id),
+    FOREIGN KEY (id_regiao) REFERENCES recicla.reg_regiao(id),
     cep varchar(255)
 );
 
-CREATE TABLE sta_status (
+CREATE TABLE recicla.sta_status (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     nome varchar(255),
     descricao varchar(255)
 );
 
-CREATE TABLE his_historico_status (
+CREATE TABLE recicla.his_historico_status (
     id_status int(10),
     nome varchar(255),
     descricao varchar(255)
 );
 
-CREATE TABLE tip_tipoveiculo (
+CREATE TABLE recicla.tip_tipoveiculo (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
 	 nome varchar(255),
      descricao varchar(255)
 );
 
-CREATE TABLE tra_transporte (
+CREATE TABLE recicla.tra_transporte (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     recipiente varchar(255)
 );
     
-CREATE TABLE tim_tipo_material(
+CREATE TABLE recicla.tim_tipo_material(
     id integer(10) PRIMARY KEY AUTO_INCREMENT, 
     nome VARCHAR(255),
     descricao VARCHAR(255),
     especificacao VARCHAR(255)
 );
 
-create table htm_historicoTipoMaterial(
+create table recicla.htm_historicoTipoMaterial(
     id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
     descricao VARCHAR(255),
     especificacao VARCHAR(255)
     );
 
-create table hm_historicoMaterial(
+create table recicla.hm_historicoMaterial(
     id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_material INTEGER(10),
     id_tipo_material INTEGER(10),
@@ -58,7 +58,7 @@ create table hm_historicoMaterial(
     descricao VARCHAR(255)
     );
 
-CREATE TABLE his_historicoacesso (
+CREATE TABLE recicla.his_historicoacesso (
   id int(11) PRIMARY KEY AUTO_INCREMENT,
   id_usuario INTEGER(10) NOT NULL,
   id_status INTEGER(10) NOT NULL,
@@ -75,61 +75,61 @@ CREATE TABLE his_historicoacesso (
   tipo_usuario varchar(255) NOT NULL
 );
 
-CREATE TABLE mod_modulo (
+CREATE TABLE recicla.mod_modulo (
   id int(11) PRIMARY KEY AUTO_INCREMENT,
   nome varchar(255) NOT NULL,
   descricao varchar(255) NOT NULL
 );
 
-CREATE TABLE ace_acesso (
+CREATE TABLE recicla.ace_acesso (
   id int(11) PRIMARY KEY AUTO_INCREMENT,
   id_modulo int(11) NOT NULL,
-  FOREIGN KEY (id_modulo) REFERENCES mod_modulo(id),
+  FOREIGN KEY (id_modulo) REFERENCES recicla.mod_modulo(id),
   tipo varchar(255) NOT NULL
 ) ;
 
-CREATE TABLE pes_pessoa (
+CREATE TABLE recicla.pes_pessoa (
   id int(10) PRIMARY KEY AUTO_INCREMENT,
   nome varchar(255) NOT NULL,
   identificacao varchar(255) NOT NULL,
   id_logradouro int(10) NOT NULL,
-  FOREIGN KEY (id_logradouro) REFERENCES log_logradouro(id)
+  FOREIGN KEY (id_logradouro) REFERENCES recicla.log_logradouro(id)
 
 );
 
-create table mat_material(
+create table recicla.mat_material(
     id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_tipo_material INTEGER(10),
-    FOREIGN KEY (id_tipo_material) REFERENCES tim_tipo_material(id),
+    FOREIGN KEY (id_tipo_material) REFERENCES recicla.tim_tipo_material(id),
     nome VARCHAR(50),
     descricao VARCHAR(255)
 );
 
-CREATE TABLE usu_usuario (
+CREATE TABLE recicla.usu_usuario (
   id int(10) PRIMARY KEY AUTO_INCREMENT,
   id_pessoa int(10) NOT NULL,
-  FOREIGN KEY (id_pessoa) REFERENCES pes_pessoa(id),
+  FOREIGN KEY (id_pessoa) REFERENCES recicla.pes_pessoa(id),
   id_status int(10) NOT NULL,
-  FOREIGN KEY (id_status) REFERENCES sta_status(id),
+  FOREIGN KEY (id_status) REFERENCES recicla.sta_status(id),
   id_acesso int(11) NOT NULL,
-  FOREIGN KEY (id_acesso) REFERENCES ace_acesso(id),
+  FOREIGN KEY (id_acesso) REFERENCES recicla.ace_acesso(id),
   login varchar(255) NOT NULL,
   senha varchar(255) NOT NULL,
   data_inicio date NOT NULL,
   data_fim date DEFAULT NULL
 );
 
-CREATE TABLE vei_veiculo (
+CREATE TABLE recicla.vei_veiculo (
     id integer(10) PRIMARY KEY AUTO_INCREMENT, 
     placa varchar(255),
     id_tipo Integer (10),
-    FOREIGN KEY (id_tipo) REFERENCES tip_tipoveiculo(id),
+    FOREIGN KEY (id_tipo) REFERENCES recicla.tip_tipoveiculo(id),
     capacidade integer(10),
     usuario_id integer(10),
-    FOREIGN KEY (usuario_id) REFERENCES usu_usuario(id)
+    FOREIGN KEY (usuario_id) REFERENCES recicla.usu_usuario(id)
 );
 
-CREATE TABLE col_coleta (
+CREATE TABLE recicla.col_coleta (
     id integer(10) PRIMARY KEY AUTO_INCREMENT,
     id_status integer(10),
     FOREIGN KEY (id_status) REFERENCES sta_status(id),
@@ -138,46 +138,61 @@ CREATE TABLE col_coleta (
     data_sol date,
     data_con date,
     id_logradouro_r integer(10),
-    FOREIGN KEY (id_logradouro_r) REFERENCES log_logradouro(id),
+    FOREIGN KEY (id_logradouro_r) REFERENCES recicla.log_logradouro(id),
     id_logradouro_e integer(10),
-    FOREIGN KEY (id_logradouro_e) REFERENCES log_logradouro(id),
+    FOREIGN KEY (id_logradouro_e) REFERENCES recicla.log_logradouro(id),
     id_usuario_r integer(10),
-    FOREIGN KEY (id_usuario_r) REFERENCES usu_usuario(id),
+    FOREIGN KEY (id_usuario_r) REFERENCES recicla.usu_usuario(id),
     id_usuario_e integer(10),
-    FOREIGN KEY (id_usuario_e) REFERENCES usu_usuario(id)
+    FOREIGN KEY (id_usuario_e) REFERENCES recicla.usu_usuario(id)
 );
 
-insert into tim_tipo_material (nome, descricao, especificacao) values ("aluminio","metal","metais e aluminios"),("papel","papel de folha","derivados de papel"),
+insert into recicla.tim_tipo_material (nome, descricao, especificacao) values ("aluminio","metal","metais e aluminios"),("papel","papel de folha","derivados de papel"),
 ("vidro","vidros transparentes","vidros e vidraçarias"),("plastico","plastico de garrafa","plasticos e derivados de petroleo");
 
-INSERT INTO `reg_regiao`( `nome`, `descricao`) VALUES ("TATUAPE","ZONA LESTE"),("ARTUR ALVIM","ZONA LESTE"),("´PATRIARCA","ZONA LESTE"),("ITAQUERA","ZONA LESTE");
+INSERT INTO recicla.reg_regiao( `nome`, `descricao`) VALUES ("TATUAPE","ZONA LESTE"),("ARTUR ALVIM","ZONA LESTE"),("´PATRIARCA","ZONA LESTE"),("ITAQUERA","ZONA LESTE");
 
-INSERT INTO `log_logradouro`( `id_regiao`, `cep`) VALUES (2,"03657105"),(3,"03657100"),(2,"03657102"),(3,"03657103");
+INSERT INTO recicla.log_logradouro( `id_regiao`, `cep`) VALUES (2,"03657105"),(3,"03657100"),(2,"03657102"),(3,"03657103");
 
-INSERT INTO `mod_modulo`( `nome`, `descricao`) VALUES ("coleta","modulo de coleta para abrir coleta"), ("cadastroUsuario","modulo de abrir cadastro para usuarios"),
+INSERT INTO recicla.mod_modulo( `nome`, `descricao`) VALUES ("coleta","modulo de coleta para abrir coleta"), ("cadastroUsuario","modulo de abrir cadastro para usuarios"),
  ("cadastroColetador","modulo de abrir cadastro para coletadores"),("cadastroVeiculo","modulo de abrir cadastro de veiculos");
 
- INSERT INTO `ace_acesso`(`id_modulo`, `tipo`) VALUES (2,"usuario"),(1,"coletador"),(4,"coletador"),(3,"admin");
+ INSERT INTO recicla.ace_acesso(`id_modulo`, `tipo`) VALUES (2,"usuario"),(1,"coletador"),(4,"coletador"),(3,"admin");
 
-INSERT INTO `sta_status`( `nome`, `descricao`) VALUES ('ativo','esta logado'),('inativo','esta deslogado'),('ativo','esta logado'),
+INSERT INTO recicla.sta_status( `nome`, `descricao`) VALUES ('ativo','esta logado'),('inativo','esta deslogado'),('ativo','esta logado'),
 ('inativo','esta deslogado'),('ativo','esta logado'),('inativo','esta deslogado');
 
-INSERT INTO `pes_pessoa`( `nome`, `identificacao`,  `id_logradouro`) VALUES ("GABRIEL BONAMICO","593275647","3"),("LAULO CELIO","593613647","1"),
+INSERT INTO recicla.pes_pessoa( `nome`, `identificacao`,  `id_logradouro`) VALUES ("GABRIEL BONAMICO","593275647","3"),("LAULO CELIO","593613647","1"),
 ("KAWAN XIMENDES","723575647","3"),("FLABIO DIAS","593254727","3"),("ALEX BITENCAS","59326354","3");
 
-INSERT INTO `usu_usuario`(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha`, `data_inicio`, `data_fim`) VALUES (1,1,1,"alex","bitencas","2022-05-10","2022-12-10"),
+INSERT INTO recicla.usu_usuario(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha`, `data_inicio`, `data_fim`) VALUES (1,1,1,"alex","bitencas","2022-05-10","2022-12-10"),
 (1,1,1,"gabriel","bona","2022-05-10","2022-12-25"),(1,1,1,"fabio","dias","2022-05-10","2022-12-25"),(1,1,1,"laulo","celio","2022-05-10","2022-12-25");
 
-INSERT INTO `tip_tipoveiculo`( `nome`, `descricao`)values ("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),
+INSERT INTO recicla.tip_tipoveiculo( `nome`, `descricao`)values ("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),
 ("caminhao","veiculo grande"),("caminhao","veiculo grande");
 
-INSERT INTO `mod_modulo` (`nome`, descricao) values ("administrador", "permissao para todos os modulos"), ("usuario", "permissao para certos modulos");
+INSERT INTO recicla.mod_modulo (`nome`, descricao) values ("administrador", "permissao para todos os modulos"), ("usuario", "permissao para certos modulos");
 
-CREATE TRIGGER `trg_historico_status` AFTER UPDATE ON `sta_status` FOR EACH ROW
-INSERT INTO his_historico_status(id_status,nome,descricao) values(NEW.id,NEW.nome,NEW.descricao);
+CREATE TRIGGER recicla.trg_historico_status AFTER UPDATE ON recicla.sta_status FOR EACH ROW
+INSERT INTO recicla.his_historico_status(id_status,nome,descricao) values(NEW.id,NEW.nome,NEW.descricao);
 
-CREATE TRIGGER `trg_historico_material` AFTER INSERT ON `mat_material` FOR EACH ROW
-INSERT INTO hm_historicomaterial(id_material,id_tipo_material_nome_descricao) values(NEW.id,NEW.id_tipo_material,NEW.nome,NEW.descricao);
+CREATE TRIGGER recicla.trg_historico_material AFTER INSERT ON recicla.mat_material FOR EACH ROW
+INSERT INTO recicla.hm_historicomaterial(id_material,id_tipo_material_nome_descricao) values(NEW.id,NEW.id_tipo_material,NEW.nome,NEW.descricao);
  
-CREATE TRIGGER `trg_historico_tipomaterial` AFTER INSERT ON `tim_tipo_material` FOR EACH ROW
-INSERT INTO htm_historicotipomaterial(nome,descricao,especificacao) values(NEW.nome,NEW.descricao,NEW.especificacao);
+CREATE TRIGGER recicla.trg_historico_tipomaterial AFTER INSERT ON recicla.tim_tipo_material FOR EACH ROW
+INSERT INTO recicla.htm_historicotipomaterial(nome,descricao,especificacao) values(NEW.nome,NEW.descricao,NEW.especificacao);
+
+DELIMITER //
+CREATE TRIGGER recicla.trg_historicoacesso AFTER UPDATE ON recicla.sta_status FOR EACH ROW
+BEGIN
+IF ((SELECT id_status from recicla.usu_usuario where id_status=NEW.id) IS NOT NULL) THEN
+SET @idu =0;SET @id_statusu =0;SET @id_pessoau =0;SET @id_acessou =0;SET @loginu =0;SET @senhau =0;SET @data_iniciou = "0000-00-00";SET @data_fimu = "0000-00-00";
+SET @idp =0;SET @nomep ="";SET @identificacaop ="";SET @tipop ="";SET @id_logradourop =0;
+SET @newid = NEW.id;
+
+SELECT id,id_status,id_pessoa,id_acesso,login,senha,data_inicio,data_fim INTO @idu,@id_statusu,@id_pessoau,@id_acessou,@loginu,@senhau,@data_iniciou,@data_fimu from recicla.usu_usuario where id_status = @newid;
+SELECT id,nome,identificacao,tipo,id_logradouro INTO  @idp,@nomep,@identificacaop,@tipop,@id_logradourop  from recicla.pes_pessoa where id=id_pessoau;
+
+INSERT INTO recicla.his_historicoacesso ( id_usuario, id_status, id_pessoa,id_acesso,login, senha,data_inicio, data_fim, id_logradouro, identificacao, tipo_pessoa,nome, tipo_usuario) values (@idu, @id_statusu, @id_pessoau,@id_acessou,@loginu, @senhau,@data_iniciou, @data_fimu,@id_logradourop, @identificacaop,@tipop,@nomep, @tipop);
+END IF;
+END //
