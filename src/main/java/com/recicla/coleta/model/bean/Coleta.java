@@ -1,228 +1,234 @@
 package com.recicla.coleta.model.bean;
 
 import com.recicla.contAcesso.model.bean.Usuario;
+import com.recicla.util.model.bean.Status;
 import java.sql.Date;
 
 public class Coleta {
 
-	private int id;
-	private int idStatus;
-	private String compl;
-	private int quantidade;
-	private Date dataSol;
-	private Date dataCon;
-	//Id de logradouro de coleta (daonde pega)
-	private int idLogradouroR;
-	private Logradouro logradouroR;
-	//Id de logradouro de entrega (daonde entrega)
-	private int idLogradouroE;
-	private Logradouro logradouroE;
-	//Id de Usuario  de entrega (daonde entrega)
-	private int idUsuarioR;
-	private Usuario usuarioR;
-	//Id de Usuario  de entrega (daonde entrega)
-	private int idUsuarioE;
-	private Usuario usuarioE;
+    private int id;
+    private int idStatus;
+    private Status status;
+    private String compl;
+    private int quantidade;
+    private Date dataSol;
+    private Date dataCon;
+    //Id de logradouro de coleta (daonde pega)
+    private int idLogradouroR;
+    private Logradouro logradouroR;
+    //Id de logradouro de entrega (daonde entrega)
+    private int idLogradouroE;
+    private Logradouro logradouroE;
+    //Id de Usuario  de entrega (daonde entrega)
+    private int idUsuarioR;
+    private Usuario usuarioR;
+    //Id de Usuario  de entrega (daonde entrega)
+    private int idUsuarioE;
+    private Usuario usuarioE;
 
-	
-	
-	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, int idLogradouroR, int idLogradouroE,
-			int idUsuarioR, int idUsuarioE) {
-		super();
-		this.idStatus = idStatus;
-		this.compl = compl;
-		this.quantidade = quantidade;
-		this.dataSol = dataSol;
-		this.idLogradouroR = idLogradouroR;
-		this.idLogradouroE = idLogradouroE;
-		this.idUsuarioR = idUsuarioR;
-		this.idUsuarioE = idUsuarioE;
-	}
+    public Coleta(int idStatus, String compl, int quantidade, Date dataSol, int idLogradouroR, int idLogradouroE,
+            int idUsuarioR, int idUsuarioE) {
+        super();
+        this.idStatus = idStatus;
+        this.compl = compl;
+        this.quantidade = quantidade;
+        this.dataSol = dataSol;
+        this.idLogradouroR = idLogradouroR;
+        this.idLogradouroE = idLogradouroE;
+        this.idUsuarioR = idUsuarioR;
+        this.idUsuarioE = idUsuarioE;
+    }
 
-	public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
-			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
-		this.id = id;
-		this.idStatus = idStatus;
-		this.compl = compl;
-		this.quantidade = quantidade;
-		this.dataSol = dataSol;
-		this.dataCon = dataCon;
-		this.idLogradouroR = idLogradouroR;
-		this.idLogradouroE = idLogradouroE;
-		this.idUsuarioR = idUsuarioR;
-		this.idUsuarioE = idUsuarioE;
-	}
+    public Coleta(int id, int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
+            int idLogradouroE, int idUsuarioR, int idUsuarioE) {
+        this.id = id;
+        this.idStatus = idStatus;
+        this.compl = compl;
+        this.quantidade = quantidade;
+        this.dataSol = dataSol;
+        this.dataCon = dataCon;
+        this.idLogradouroR = idLogradouroR;
+        this.idLogradouroE = idLogradouroE;
+        this.idUsuarioR = idUsuarioR;
+        this.idUsuarioE = idUsuarioE;
+    }
 
-	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
-			int idLogradouroE, int idUsuarioR, int idUsuarioE) {
-		this.idStatus = idStatus;
-		this.compl = compl;
-		this.quantidade = quantidade;
-		this.dataSol = dataSol;
-		this.dataCon = dataCon;
-		this.idLogradouroR = idLogradouroR;
-		this.idLogradouroE = idLogradouroE;
-		this.idUsuarioR = idUsuarioR;
-		this.idUsuarioE = idUsuarioE;
-	}
+    public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
+            int idLogradouroE, int idUsuarioR, int idUsuarioE) {
+        this.idStatus = idStatus;
+        this.compl = compl;
+        this.quantidade = quantidade;
+        this.dataSol = dataSol;
+        this.dataCon = dataCon;
+        this.idLogradouroR = idLogradouroR;
+        this.idLogradouroE = idLogradouroE;
+        this.idUsuarioR = idUsuarioR;
+        this.idUsuarioE = idUsuarioE;
+    }
 
-	@Override
-	public String toString() {
-		return "Coleta [id=" + id + ", idStatus=" + idStatus + ", compl=" + compl + ", quantidade=" + quantidade
-				+ ", dataSol=" + dataSol + ", dataCon=" + dataCon + ", idLogradouroR=" + idLogradouroR
-				+ ", logradouroR=" + logradouroR + ", idLogradouroE=" + idLogradouroE + ", logradouroE=" + logradouroE
-				+ ", idUsuarioR=" + idUsuarioR + ", usuarioR=" + usuarioR + ", idUsuarioE=" + idUsuarioE + ", usuarioE="
-				+ usuarioE + "]";
-	}
+    @Override
+    public String toString() {
+        return "Coleta [id=" + id + ", idStatus=" + idStatus + ", compl=" + compl + ", quantidade=" + quantidade
+                + ", dataSol=" + dataSol + ", dataCon=" + dataCon + ", idLogradouroR=" + idLogradouroR
+                + ", logradouroR=" + logradouroR + ", idLogradouroE=" + idLogradouroE + ", logradouroE=" + logradouroE
+                + ", idUsuarioR=" + idUsuarioR + ", usuarioR=" + usuarioR + ", idUsuarioE=" + idUsuarioE + ", usuarioE="
+                + usuarioE + "]";
+    }
 
-	public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
-	Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
-		this.idStatus = idStatus;
-		this.compl = compl;
-		this.quantidade = quantidade;
-		this.dataSol = dataSol;
-		this.dataCon = dataCon;
-		this.idLogradouroR = idLogradouroR;
-		this.logradouroR = logradouroR;
-		this.idLogradouroE = idLogradouroE;
-		this.logradouroE = logradouroE;
-		this.idUsuarioR = idUsuarioR;
-		this.usuarioR = usuarioR;
-		this.idUsuarioE = idUsuarioE;
-		this.usuarioE = usuarioE;
-	}
+    public Coleta(int idStatus, String compl, int quantidade, Date dataSol, Date dataCon, int idLogradouroR,
+            Logradouro logradouroR, int idLogradouroE, Logradouro logradouroE, int idUsuarioR, int idUsuarioE, Usuario usuarioR, Usuario usuarioE) {
+        this.idStatus = idStatus;
+        this.compl = compl;
+        this.quantidade = quantidade;
+        this.dataSol = dataSol;
+        this.dataCon = dataCon;
+        this.idLogradouroR = idLogradouroR;
+        this.logradouroR = logradouroR;
+        this.idLogradouroE = idLogradouroE;
+        this.logradouroE = logradouroE;
+        this.idUsuarioR = idUsuarioR;
+        this.usuarioR = usuarioR;
+        this.idUsuarioE = idUsuarioE;
+        this.usuarioE = usuarioE;
+    }
 
-	public Coleta(Date dataSol) {
-		this.dataSol = dataSol;
-	}
-	
-	public Coleta(int id) {
-		this.id = id;
-	}
-	
-	
-	public Coleta(int id, String compl, int quantidade, Date dataSol, Date dataCon) {
-		this.id = id;
-		this.compl = compl;
-		this.quantidade = quantidade;
-		this.dataSol = dataSol;
-		this.dataCon = dataCon;
-	}
+    public Coleta(Date dataSol) {
+        this.dataSol = dataSol;
+    }
 
-	public Coleta() {
-	}
+    public Coleta(int id) {
+        this.id = id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public Coleta(int id, String compl, int quantidade, Date dataSol, Date dataCon) {
+        this.id = id;
+        this.compl = compl;
+        this.quantidade = quantidade;
+        this.dataSol = dataSol;
+        this.dataCon = dataCon;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Coleta() {
+    }
 
-	public int getIdStatus() {
-		return idStatus;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setIdStatus(int idStatus) {
-		this.idStatus = idStatus;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getCompl() {
-		return compl;
-	}
+    public int getIdStatus() {
+        return idStatus;
+    }
 
-	public void setCompl(String compl) {
-		this.compl = compl;
-	}
+    public void setIdStatus(int idStatus) {
+        this.idStatus = idStatus;
+    }
 
-	public int getQuantidade() {
-		return quantidade;
-	}
+    public String getCompl() {
+        return compl;
+    }
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
+    public void setCompl(String compl) {
+        this.compl = compl;
+    }
 
-	public Date getDataSol() {
-		return dataSol;
-	}
+    public int getQuantidade() {
+        return quantidade;
+    }
 
-	public void setDataSol(Date dataSol) {
-		this.dataSol = dataSol;
-	}
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public Date getDataCon() {
-		return dataCon;
-	}
+    public Date getDataSol() {
+        return dataSol;
+    }
 
-	public void setDataCon(Date dataCon) {
-		this.dataCon = dataCon;
-	}
+    public void setDataSol(Date dataSol) {
+        this.dataSol = dataSol;
+    }
 
-	public int getIdLogradouroR() {
-		return idLogradouroR;
-	}
+    public Date getDataCon() {
+        return dataCon;
+    }
 
-	public void setIdLogradouroR(int idLogradouroR) {
-		this.idLogradouroR = idLogradouroR;
-	}
+    public void setDataCon(Date dataCon) {
+        this.dataCon = dataCon;
+    }
 
-	public int getIdLogradouroE() {
-		return idLogradouroE;
-	}
+    public int getIdLogradouroR() {
+        return idLogradouroR;
+    }
 
-	public void setIdLogradouroE(int idLogradouroE) {
-		this.idLogradouroE = idLogradouroE;
-	}
+    public void setIdLogradouroR(int idLogradouroR) {
+        this.idLogradouroR = idLogradouroR;
+    }
 
-	public int getIdUsuarioR() {
-		return idUsuarioR;
-	}
+    public int getIdLogradouroE() {
+        return idLogradouroE;
+    }
 
-	public void setIdUsuarioR(int idUsuarioR) {
-		this.idUsuarioR = idUsuarioR;
-	}
+    public void setIdLogradouroE(int idLogradouroE) {
+        this.idLogradouroE = idLogradouroE;
+    }
 
-	public int getIdUsuarioE() {
-		return idUsuarioE;
-	}
+    public int getIdUsuarioR() {
+        return idUsuarioR;
+    }
 
-	public void setIdUsuarioE(int idUsuarioE) {
-		this.idUsuarioE = idUsuarioE;
-	}
+    public void setIdUsuarioR(int idUsuarioR) {
+        this.idUsuarioR = idUsuarioR;
+    }
 
-	public Logradouro getLogradouroR() {
-		return logradouroR;
-	}
+    public int getIdUsuarioE() {
+        return idUsuarioE;
+    }
 
-	public void setLogradouroR(Logradouro logradouroR) {
-		this.logradouroR = logradouroR;
-	}
+    public void setIdUsuarioE(int idUsuarioE) {
+        this.idUsuarioE = idUsuarioE;
+    }
 
-	public Logradouro getLogradouroE() {
-		return logradouroE;
-	}
+    public Logradouro getLogradouroR() {
+        return logradouroR;
+    }
 
-	public void setLogradouroE(Logradouro logradouroE) {
-		this.logradouroE = logradouroE;
-	}
+    public void setLogradouroR(Logradouro logradouroR) {
+        this.logradouroR = logradouroR;
+    }
 
-	public Usuario getUsuarioR() {
-		return usuarioR;
-	}
+    public Logradouro getLogradouroE() {
+        return logradouroE;
+    }
 
-	public void setUsuarioR(Usuario usuarioR) {
-		this.usuarioR = usuarioR;
-	}
+    public void setLogradouroE(Logradouro logradouroE) {
+        this.logradouroE = logradouroE;
+    }
 
-	public Usuario getUsuarioE() {
-		return usuarioE;
-	}
+    public Usuario getUsuarioR() {
+        return usuarioR;
+    }
 
-	public void setUsuarioE(Usuario usuarioE) {
-		this.usuarioE = usuarioE;
-	}
-	
-	
+    public void setUsuarioR(Usuario usuarioR) {
+        this.usuarioR = usuarioR;
+    }
+
+    public Usuario getUsuarioE() {
+        return usuarioE;
+    }
+
+    public void setUsuarioE(Usuario usuarioE) {
+        this.usuarioE = usuarioE;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
 }

@@ -175,7 +175,6 @@ public class DaoUsuario {
 			// adiciona o usu à lista de usus
 		}
 		stmt.close();
-		System.out.println("Usuario: " + usuSaida.toString());
 
 		return usuSaida;
 	}
