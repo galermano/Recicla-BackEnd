@@ -40,7 +40,7 @@ public class Material {
     
     
 
-    public Material(int id, int id_tipo_material, String nome, String descricao, int id_coleta) {
+    public Material(int id, int id_tipo_material, String nome, int id_coleta, String descricao) {
 		super();
 		this.id = id;
 		this.id_tipo_material = id_tipo_material;
