@@ -177,7 +177,7 @@ CREATE TRIGGER recicla.trg_historico_status AFTER UPDATE ON recicla.sta_status F
 INSERT INTO recicla.his_historico_status(id_status,nome,descricao) values(NEW.id,NEW.nome,NEW.descricao);
 
 CREATE TRIGGER recicla.trg_historico_material AFTER INSERT ON recicla.mat_material FOR EACH ROW
-INSERT INTO recicla.hm_historicomaterial(id_material,id_tipo_material_nome_descricao) values(NEW.id,NEW.id_tipo_material,NEW.nome,NEW.descricao);
+INSERT INTO recicla.hm_historicomaterial(id_material,id_tipo_material,nome,descricao) values(NEW.id,NEW.id_tipo_material,NEW.nome,NEW.descricao);
  
 CREATE TRIGGER recicla.trg_historico_tipomaterial AFTER INSERT ON recicla.tim_tipo_material FOR EACH ROW
 INSERT INTO recicla.htm_historicotipomaterial(nome,descricao,especificacao) values(NEW.nome,NEW.descricao,NEW.especificacao);
