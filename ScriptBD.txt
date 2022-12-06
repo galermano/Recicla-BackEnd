@@ -20,6 +20,7 @@ CREATE TABLE sta_status (
 );
 
 CREATE TABLE his_historico_status (
+    id_status int(10),
     nome varchar(255),
     descricao varchar(255)
 );
@@ -168,6 +169,15 @@ INSERT INTO `usu_usuario`(`id_pessoa`, `id_status`, `id_acesso`, `login`, `senha
 (1,1,1,"gabriel","bona","2022-05-10","2022-12-25"),(1,1,1,"fabio","dias","2022-05-10","2022-12-25"),(1,1,1,"laulo","celio","2022-05-10","2022-12-25");
 
 INSERT INTO `tip_tipoveiculo`( `nome`, `descricao`)values ("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),("caminhao","veiculo grande"),
-("caminhao","veiculo grande"),("caminhao","veiculo grande")
+("caminhao","veiculo grande"),("caminhao","veiculo grande");
 
-INSERT INTO `mod_modulo` (`nome`, descricao) values ("administrador", "permissao para todos os modulos"), ("usuario", "permissao para certos modulos")
+INSERT INTO `mod_modulo` (`nome`, descricao) values ("administrador", "permissao para todos os modulos"), ("usuario", "permissao para certos modulos");
+
+CREATE TRIGGER `trg_historico_status` AFTER UPDATE ON `sta_status` FOR EACH ROW
+INSERT INTO his_historico_status(id_status,nome,descricao) values(NEW.id,NEW.nome,NEW.descricao);
+
+CREATE TRIGGER `trg_historico_material` AFTER INSERT ON `mat_material` FOR EACH ROW
+INSERT INTO hm_historicomaterial(id_material,id_tipo_material_nome_descricao) values(NEW.id,NEW.id_tipo_material,NEW.nome,NEW.descricao);
+ 
+CREATE TRIGGER `trg_historico_tipomaterial` AFTER INSERT ON `tim_tipo_material` FOR EACH ROW
+INSERT INTO htm_historicotipomaterial(nome,descricao,especificacao) values(NEW.nome,NEW.descricao,NEW.especificacao);
