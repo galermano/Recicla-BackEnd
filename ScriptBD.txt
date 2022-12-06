@@ -182,17 +182,3 @@ INSERT INTO recicla.hm_historicomaterial(id_material,id_tipo_material_nome_descr
 CREATE TRIGGER recicla.trg_historico_tipomaterial AFTER INSERT ON recicla.tim_tipo_material FOR EACH ROW
 INSERT INTO recicla.htm_historicotipomaterial(nome,descricao,especificacao) values(NEW.nome,NEW.descricao,NEW.especificacao);
 
-DELIMITER //
-CREATE TRIGGER recicla.trg_historicoacesso AFTER UPDATE ON recicla.sta_status FOR EACH ROW
-BEGIN
-IF ((SELECT id_status from recicla.usu_usuario where id_status=NEW.id) IS NOT NULL) THEN
-SET @idu =0;SET @id_statusu =0;SET @id_pessoau =0;SET @id_acessou =0;SET @loginu =0;SET @senhau =0;SET @data_iniciou = "0000-00-00";SET @data_fimu = "0000-00-00";
-SET @idp =0;SET @nomep ="";SET @identificacaop ="";SET @tipop ="";SET @id_logradourop =0;
-SET @newid = NEW.id;
-
-SELECT id,id_status,id_pessoa,id_acesso,login,senha,data_inicio,data_fim INTO @idu,@id_statusu,@id_pessoau,@id_acessou,@loginu,@senhau,@data_iniciou,@data_fimu from recicla.usu_usuario where id_status = @newid;
-SELECT id,nome,identificacao,tipo,id_logradouro INTO  @idp,@nomep,@identificacaop,@tipop,@id_logradourop  from recicla.pes_pessoa where id=id_pessoau;
-
-INSERT INTO recicla.his_historicoacesso ( id_usuario, id_status, id_pessoa,id_acesso,login, senha,data_inicio, data_fim, id_logradouro, identificacao, tipo_pessoa,nome, tipo_usuario) values (@idu, @id_statusu, @id_pessoau,@id_acessou,@loginu, @senhau,@data_iniciou, @data_fimu,@id_logradourop, @identificacaop,@tipop,@nomep, @tipop);
-END IF;
-END //
