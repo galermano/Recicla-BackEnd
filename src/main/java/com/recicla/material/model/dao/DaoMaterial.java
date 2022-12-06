@@ -48,10 +48,11 @@ public class DaoMaterial {
         Material retorno = null;
         while (rs.next()) {
             retorno = new Material(
-                    rs.getInt(1),
-                    rs.getInt(2),
-                    rs.getString(3),
-                    rs.getString(4)
+            		rs.getInt(1),
+    				rs.getInt(2),
+    				rs.getString(3),
+    				rs.getString(4),
+    				rs.getInt(5)
             );
         }
         stmt.close();
@@ -59,12 +60,13 @@ public class DaoMaterial {
     }
 
     public Material alterar(Material mat) throws SQLException {
-        String sql = "UPDATE mat_material SET id_tipo_material = ?, nome = ?, descricao = ? WHERE id = ?";
+        String sql = "UPDATE mat_material SET id_tipo_material = ?, nome = ?, descricao = ?, id_coleta = ? WHERE id = ?";
         PreparedStatement stmt = c.prepareStatement(sql);
         stmt.setInt(1, mat.getId_tipo_material());
         stmt.setString(2, mat.getNome());
         stmt.setString(3, mat.getDescricao());
-        stmt.setInt(4, mat.getId());
+        stmt.setInt(4, mat.getId_coleta());
+        stmt.setInt(5, mat.getId());
         stmt.execute();
         stmt.close();
         return mat;
@@ -89,16 +91,60 @@ public class DaoMaterial {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Material mat = new Material(
-                    rs.getInt(1),
-                    rs.getInt(2),
-                    rs.getString(3),
-                    rs.getString(4)
+            		rs.getInt(1),
+    				rs.getInt(2),
+    				rs.getString(3),
+    				rs.getString(4),
+    				rs.getInt(5)
             );
             mats.add(mat);
         }
         rs.close();
         stmt.close();
         return mats;
+    }
+    
+    public List<Material> listarTodos() throws SQLException {
+    	List<Material> mats = new ArrayList<Material>();
+    	
+    	String sql = "select * from mat_material";
+    	PreparedStatement stmt = this.c.prepareStatement(sql);
+    	ResultSet rs = stmt.executeQuery();
+    	while (rs.next()) {
+    		Material mat = new Material(
+    				rs.getInt(1),
+    				rs.getInt(2),
+    				rs.getString(3),
+    				rs.getString(4),
+    				rs.getInt(5)
+    				);
+    		mats.add(mat);
+    	}
+    	rs.close();
+    	stmt.close();
+    	return mats;
+    }
+    
+    public List<Material> listarPorColeta(Material matEnt) throws SQLException {
+    	List<Material> mats = new ArrayList<Material>();
+    	
+    	String sql = "select * from mat_material where id_coleta = ?";
+    	PreparedStatement stmt = this.c.prepareStatement(sql);
+    	stmt.setInt(1, matEnt.getId_coleta());
+    	ResultSet rs = stmt.executeQuery();
+    	while (rs.next()) {
+    		Material mat = new Material(
+    				rs.getInt(1),
+    				rs.getInt(2),
+    				rs.getString(3),
+    				rs.getString(4),
+    				rs.getInt(5)
+    				);
+    		mats.add(mat);
+    	}
+    	rs.close();
+    	stmt.close();
+    	return mats;
     }
 
 }

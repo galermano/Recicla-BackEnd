@@ -49,4 +49,20 @@ public class ControllerMaterial {
     	}
         return listaMaterialAux;
     }
+
+    public List<Material> listarPorColeta(Material mat) throws SQLException, ClassNotFoundException {
+    	daoMat = new DaoMaterial();
+    	List<Material> listaMaterial = daoMat.listarPorColeta(mat);
+    	List<Material> listaMaterialAux = new ArrayList<Material>();
+    	listaMaterialAux.addAll(listaMaterial);
+    	return listaMaterialAux;
+    }
+    
+    public List<Material> listarTodos() throws SQLException, ClassNotFoundException {
+        daoMat = new DaoMaterial();
+    	List<Material> listaMaterial = daoMat.listarTodos();
+    	List<Material> listaMaterialAux = new ArrayList<Material>();
+    	listaMaterialAux.addAll(listaMaterial);
+    	return listaMaterialAux;
+    }
 }

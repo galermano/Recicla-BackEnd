@@ -1,5 +1,7 @@
 package com.recicla.material.model.bean;
 
+import com.recicla.coleta.model.bean.Coleta;
+
 /**
  *
  * @author Lauro
@@ -11,6 +13,8 @@ public class Material {
     private TipoMaterial tipoMat;
     private String nome;
     private String descricao;
+    private int id_coleta;
+    private Coleta coleta;
 
     public Material(int id) {
         this.id = id;
@@ -33,8 +37,29 @@ public class Material {
         this.nome = nome;
         this.descricao = descricao;
     }
+    
+    
 
-    public int getId() {
+    public Material(int id, int id_tipo_material, String nome, String descricao, int id_coleta) {
+		super();
+		this.id = id;
+		this.id_tipo_material = id_tipo_material;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.setId_coleta(id_coleta);
+	}
+
+    
+    
+	public Material(int id_tipo_material, String nome, String descricao, int id_coleta) {
+		super();
+		this.id_tipo_material = id_tipo_material;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.setId_coleta(id_coleta);
+	}
+
+	public int getId() {
         return id;
     }
 
@@ -78,6 +103,22 @@ public class Material {
 	public String toString() {
 		return "Material [id=" + id + ", id_tipo_material=" + id_tipo_material + ", tipoMat=" + tipoMat + ", nome="
 				+ nome + ", descricao=" + descricao + "]";
+	}
+
+	public int getId_coleta() {
+		return id_coleta;
+	}
+
+	public void setId_coleta(int id_coleta) {
+		this.id_coleta = id_coleta;
+	}
+
+	public Coleta getColeta() {
+		return coleta;
+	}
+
+	public void setColeta(Coleta coleta) {
+		this.coleta = coleta;
 	}
     
     
